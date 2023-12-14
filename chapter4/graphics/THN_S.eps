@@ -1,0 +1,2816 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Creator: Gri2.6.4 (released 2001-06-23).  User=, commandfile=d:\programs\gri\gri\timeseries
+%%Title: d:\programs\gri\gri\timeseries.ps
+%%CreationDate: Fri Apr 26 11:26:18 2002
+%%Pages: (atend)
+%%BoundingBox: 0 12 323 178
+%%TemplateBox: 0 0 612 792
+%%DocumentFonts: (atend)
+%%Endcomments
+% NOTE: The Gri postscript dictionary is being converted to the Adobe
+% Illustrator 3.0 dialect of PostScript, as described in the Adobe
+% documents stored at URL
+%   http://www.adobe.com/Support/TechNotes.html
+% (as of Jan 1996, this doc is number 5007).  When the conversion
+% is complete, the Adobe Illustrator drawing program -- and any
+% program compatible with AI -- will be able to edit Gri output.
+%
+% The IslandDraw (TM) program is able to read Gri output
+% at this time; remarkably, it can read/edit arbitrary PostScript.
+%
+% The definitions below are presented in the same order as the Adobe
+% manual.  The stack configuration before and after is shown in curly
+% brackets.  All the operators are listed, but only some are defined
+% here. Most things are faithful, except that no distinction is made
+% between colors for stroking and filling paths.  The string 'WRONGLY'
+% appears with commands that are approximations.
+%
+% PDF-style abbreviations:
+/rg {setrgbcolor} def   % {red green blue}            {-} set RGB color
+/RG {setrgbcolor} def   % {red green blue}            {-} set RGB color
+/q {gsave} def
+/Q {grestore} def
+/W {clip} def
+/W* {eoclip} def
+%
+% Gri-specific abbreviations:
+/hsb {sethsbcolor} def  % {hue saturation brightness} {-} set HSB color
+%
+% Following all try to mimic Adobe Illustrator
+%
+% Mimicking section 5.1 of Adobe manual:
+%A                      % {flag A}          {-} Determine whether
+                        %                       following object can
+                        %                       be selected. Flag=1
+                        %                       prevents selection;
+                        %                       flag=0 allows it.
+
+% Mimicking section 5.2 of Adobe manual:
+%u                      % {u}               {-} start group
+%U                      % end group
+%q                      % as 'u' but first item is a clip path
+%Q                      % as 'U' but first item is a clip path
+
+% Mimicking section 5.3 of Adobe manual:
+/g {setgray} def        % {gray g}          {-} Set gray for fill
+                        %                       path, WRONGLY used
+                        %                       for stroking also. 
+/G {setgray} def        % As 'g', but for filling path.
+%k                      % Set cmyk color for filling path.
+%K                      % As 'k', but for stroking path.
+%x                      % Set cmyk custom color for filling path.
+%X                      % As 'x' but for stroking path.
+%p                      % Define pattern for filling path.
+%P                      % As 'p' but for stroking path.
+%O                      % Specify whether overprinting for fill paths
+%R                      % As 'O' but for stroking path.
+
+% Mimicking section 5.4 of Adobe manual:
+/d {setdash} def        % {[array] phase d} {-} Set dash.
+/i {setflat} def        % {flatness i}      {-} Set flatness.
+/j {setlinejoin} def    % {linejoin j}      {-} Set line join.
+/J {setlinecap} def     % {linecap J}       {-} Set line cap.
+/M {setmiterlimit} def  % {miterlimit M}    {-} Set miter limit.
+/w {setlinewidth} def   % {linewidth w}     {-} Set line width.
+
+% Mimicking section 5.5 of Adobe manual:
+/m {moveto} def         % {x y m}           {-} Move to locn
+/l {lineto} def         % {x y l}           {-} Draw line to locn
+                        %                       not a smooth point.
+                        %                       WRONGLY, no
+                        %                       distinction is made
+                        %                       between smooth and
+                        %                       corner. 
+%L                      % {x y L}           {-} As 'l' but a corner
+%c                      % Bezier curve to smooth point.
+%C                      % As 'c' but to corner point.
+%v                      % Something else to do with Bezier.
+%V                      % 
+%y                      % 
+%Y                      % 
+
+% Mimicking section 5.6 of Adobe manual:
+%N                      % {N}               {-} As 'n' for nondrawn stuff
+/n {newpath} def        % {n}               {-} WRONGLY interpreted
+                        %                       as path constructor
+/F {fill} def           % {F}               {-} Fill current path.
+%f                      % {f}               {-} 'F' but close first
+/S {stroke} def         % {S}               {-} Stroke current path.
+%s                      % {s}               {-} 'S' but close first
+%B                      % {B}               {-} As 's' but don't empty path.
+%b                      % {b}               {-} As 'f' but don't empty path.
+%H                      % no-op (weird huh?)
+/h {closepath} def      % {h}               {-} Close  current path
+%W                      % Used to create masks.
+
+% Mimicking section 5.7 of Adobe manual:
+%a                      % Begin text block ...
+%e                      % Similar to 'a' but ...
+%I                      % Similar to 'a' but ...
+%o                      % Similar to 'a' but ...
+%r                      % Similar to 'a' but ...
+%t                      % {len (string) t}  {-} Render string.
+%T                      % End block of text
+
+% That's the end of the Illustrator stuff. Following are some Gri
+% definitions which provide a temporary way of handling fonts. 
+/sf {setfont} def       % {fontname sf}     {-} Set font name.
+/sh {show} def          % {(text) sh}       {-} Show text.
+/sc {scalefont} def     % {size sc}         {-} Scale font.
+% Gri items which should be translated to Illustrator format:
+/rl {rlineto} def
+/rm {rmoveto} def
+% Procedures
+/cimdict 7 dict def
+/cim {
+ cimdict begin
+ /cl exch def
+ /rw exch def
+ /yur exch def
+ /xur exch def
+ /yll exch def
+ /xll exch def
+ q
+ xll yll translate
+ xur xll sub yur yll sub scale
+ /do cl 3 mul string def
+ cl rw 8 [cl 0 0 rw neg 0 rw] {currentfile do readhexstring pop} false 3 colorimage
+ Q
+ end
+} def
+/imdict 14 dict def
+/im {
+ imdict begin
+ /cl exch def
+ /rw exch def
+ /yur exch def
+ /xur exch def
+ /yll exch def
+ /xll exch def
+ /imagemap exch def
+ q
+ % Until version 2.6.0 used a 'settransfer' here, but that
+ % triggers a bug in ps2pdf
+ xll yll translate
+ xur xll sub yur yll sub scale
+ /do cl string def
+ cl rw 8 [cl 0 0 rw neg 0 rw]
+ {currentfile do readhexstring pop
+  dup length 1 sub 0 1 3 -1 roll
+    { 1 index exch
+      2 copy get imagemap exch get 255 mul cvi put
+    }
+  for
+ }image
+ Q
+ end
+} bind def
+/frdict  5 dict def
+/fr {
+ frdict begin
+ /yt exch def
+ /xr exch def
+ /yb exch def
+ /xl exch def
+ n
+ xl yb m
+ xl yt l
+ xr yt l
+ xr yb l
+ h
+ F
+ n
+ end
+} def
+/plusdict 3 dict def
+/_plus {
+ plusdict begin
+ dup 0.5 mul /t0 exch def
+ /t1 exch def
+ 0 t0 rm
+ 0 t1 neg rl
+ t0 neg t0 rm
+ t1 0 rl
+ t0 neg 0 rm
+ end
+} def
+/timesdict 3 dict def
+/_times {
+ timesdict begin
+ dup 0.353553 mul /t0 exch def
+ 0.707106 mul /t1 exch def
+ t0 neg t0 rm
+ t1 dup neg rl
+ t1 neg 0 rm
+ t1 dup rl
+ t0 neg dup rm
+ end
+} def
+/boxdict 3 dict def
+/_box {
+ boxdict begin
+ dup 0.5 mul /t0 exch def
+ 1 mul /t1 exch def
+ t0 neg t0 rm
+ t1 0 rl
+ 0 t1 neg rl
+ t1 neg 0 rl
+ h
+ t0 dup neg rm
+ end
+} def
+/filledboxdict 3 dict def
+/_filledbox {
+ filledboxdict begin
+ dup 0.5 mul /t0 exch def
+ 1 mul /t1 exch def
+ t0 neg t0 rm
+ t1 0 rl
+ 0 t1 neg rl
+ t1 neg 0 rl
+ h
+ t0 dup neg rm
+ F end
+} def
+/diamonddict 2 dict def
+/_diamond {
+ diamonddict begin
+ 0.5 mul /t0 exch def
+ t0 neg 0 rm
+ t0 dup rl
+ t0 dup neg rl
+ t0 neg dup rl
+ h
+ t0 0 rm
+ end
+} def
+/filleddiamonddict 2 dict def
+/_filleddiamond {
+ filleddiamonddict begin
+ 0.5 mul /t0 exch def
+ t0 neg 0 rm
+ t0 dup rl
+ t0 dup neg rl
+ t0 neg dup rl
+ h
+ t0 0 rm
+ F end
+} def
+/triangleupdict 5 dict def
+/_triangleup {
+ triangleupdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t1 neg t0 neg rm
+ t1 t2 rl
+ t1 t2 neg rl
+ h
+ t1 t0 rm
+ end
+} def
+/filledtriangleupdict 5 dict def
+/_filledtriangleup {
+ filledtriangleupdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t1 neg t0 neg rm
+ t1 t2 rl
+ t1 t2 neg rl
+ h
+ t1 t0 rm
+ F end
+} def
+/trianglerightdict 5 dict def
+/_triangleright {
+ trianglerightdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t0 neg t1 rm
+ t2 t1 neg rl
+ t2 neg t1 neg rl
+ h
+ t0 t1 neg rm
+ end
+} def
+/filledtrianglerightdict 5 dict def
+/_filledtriangleright {
+ filledtrianglerightdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t0 neg t1 rm
+ t2 t1 neg rl
+ t2 neg t1 neg rl
+ h
+ t0 t1 neg rm
+ F end
+} def
+/triangledowndict 5 dict def
+/_triangledown {
+ triangledowndict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t1 neg t0 rm
+ t3 0 rl
+ t1 neg t2 neg rl
+ h
+ t1 t0 neg rm
+ end
+} def
+/filledtriangledowndict 5 dict def
+/_filledtriangledown {
+ filledtriangledowndict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t1 neg t0 rm
+ t3 0 rl
+ t1 neg t2 neg rl
+ h
+ t1 t0 neg rm
+ F end
+} def
+/triangleleftdict 5 dict def
+/_triangleleft {
+ triangleleftdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t0 t1 rm
+ 0 t3 neg rl
+ t2 neg t1 rl
+ h
+ t0 neg t1 neg rm
+ end
+} def
+/filledtriangleleftdict 5 dict def
+/_filledtriangleleft {
+ filledtriangleleftdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t0 t1 rm
+ 0 t3 neg rl
+ t2 neg t1 rl
+ h
+ t0 neg t1 neg rm
+ F end
+} def
+/circdict 5 dict def
+/_circ {
+ circdict begin
+ 0.5 mul /t0 exch def
+ currentpoint
+ /t2 exch def
+ /t1 exch def
+ S n t1 t2 t0 0 360 arc
+ t1 t2 m
+ end
+} def
+/bulldict 3 dict def
+/_bull {
+ bulldict begin
+ 0.5 mul /r exch def
+ currentpoint /y exch def /x exch def
+ S n x y r 0 360 arc h F S
+ end
+} def
+/filledhalfmoonupdict 3 dict def
+/_filledhalfmoonup {
+ bulldict begin
+ 0.5 mul /r exch def
+ currentpoint /y exch def /x exch def
+ S n x y r 0 180 arc h F S
+ end
+} def
+/filledhalfmoondowndict 3 dict def
+/_filledhalfmoondown {
+ bulldict begin
+ 0.5 mul /r exch def
+ currentpoint /y exch def /x exch def
+ S n x y r 180 360 arc h F S
+ end
+} def
+1 1 scale
+10.0 M
+1 j
+/Courier findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Courier-ISOLatin1 exch definefont pop
+/Courier-Oblique findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Courier-Oblique-ISOLatin1 exch definefont pop
+/Courier-Bold findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Courier-Bold-ISOLatin1 exch definefont pop
+/Courier-BoldOblique findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Courier-BoldOblique-ISOLatin1 exch definefont pop
+/Helvetica findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Helvetica-ISOLatin1 exch definefont pop
+/Helvetica-Bold findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Helvetica-Bold-ISOLatin1 exch definefont pop
+/Helvetica-Oblique findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Helvetica-Oblique-ISOLatin1 exch definefont pop
+/Palatino-Roman findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Palatino-Roman-ISOLatin1 exch definefont pop
+/Palatino-Italic findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Palatino-Italic-ISOLatin1 exch definefont pop
+/Palatino-Bold findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Palatino-Bold-ISOLatin1 exch definefont pop
+/Palatino-BoldItalic findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Palatino-BoldItalic-ISOLatin1 exch definefont pop
+/Symbol findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Symbol-ISOLatin1 exch definefont pop
+/Times-Roman findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Times-Roman-ISOLatin1 exch definefont pop
+/Times-Italic findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Times-Italic-ISOLatin1 exch definefont pop
+/Times-Bold findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Times-Bold-ISOLatin1 exch definefont pop
+/Times-BoldItalic findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Times-BoldItalic-ISOLatin1 exch definefont pop
+%%EndProlog
+%%Page: 1 1
+/Helvetica-ISOLatin1 findfont 12.00 sc sf
+%gri:# Gri was invoked by user named
+%gri:#     
+%gri:# on host named
+%gri:#     unknown
+%gri:# using the command
+%gri:#    gri -p d:\programs\gri\gri\timeseries
+%gri:# at time Fri Apr 26 11:26:18 2002.
+%gri://expecting version 2.050
+%gri:// tsplot.gri plots ts data with overlaid sigma-t or spiciness curves
+%gri:// Set missing value (end of curve) to 999. Corrected for watermasses drawing
+%gri:set missing value 999.000
+%gri://
+%gri:if ..debug..
+%gri:..trace.. = 1
+%gri:end if
+%gri:
+%gri:// Define  control file
+%gri:
+%gri:\CON_DATA = "control.ts"
+%gri:query \conf "Control file?  " ("\CON_DATA")
+%gri:
+%gri:open "\conf"
+%gri:skip 5
+%gri:read \orientation
+%gri:read .fac.
+%gri:read .noofgrphs.
+%gri:skip
+%gri: 
+%gri:// Font size and axis line width
+%gri:read  .axfontsiz. .axlw.
+%gri:
+%gri:// Set up the x axis.
+%gri:read .xsiz.
+%gri:read .xoff.
+%gri:read  line \xlab
+%gri:read .xmin.
+%gri:read .xmax.
+%gri:read .xtic.
+%gri:read .xtic2.
+%gri:
+%gri:// Set up the y axis.
+%gri:read .ysiz.
+%gri:read .yoff.
+%gri:read line \ylab
+%gri:read .ymin.
+%gri:read .ymax.
+%gri:read .ytic.
+%gri:read .ytic2.
+%gri:skip
+%gri:
+%gri:show "++++++++++++++++++++++ Read axis info ++++++++++++++++++++++"
+%gri:
+%gri:set page \orientation
+%gri:set page factor .fac.
+1 1 scale
+%gri:
+%gri:set line width .axlw.
+%gri:set font size .axfontsiz.
+/Helvetica-ISOLatin1 findfont 14.00 sc sf
+%gri://set font to Times
+%gri:
+%gri:set x size .xsiz.
+%gri:set x margin .xoff.
+%gri:set x axis .xmin. .xmax. .xtic. .xtic2.
+%gri:set x name \xlab
+%gri:set y size .ysiz.
+%gri:set y margin .yoff. 
+%gri:set y axis .ymin. .ymax. .ytic. .ytic2.
+%gri:set y name \ylab
+%gri:
+%gri:draw axes
+% gr_show_at() BEGIN
+0 g
+0 G
+62.2 33.6 m (40) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+106.0 33.6 m (30) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+149.8 33.6 m (20) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+193.6 33.6 m (10) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+241.4 33.6 m (0) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+278.9 33.6 m () sh
+(\255) sh
+(10) sh
+% gr_show_at() END
+0 g
+0 G
+1.0 i 0 J 0 j 0.369 w 10.0 M [] 0 d
+56.90 56.90 m
+70.04 56.90 l
+70.04 51.21 l
+70.04 56.90 l
+91.95 56.90 l
+91.95 54.05 l
+91.95 56.90 l
+113.85 56.90 l
+113.85 51.21 l
+113.85 56.90 l
+135.75 56.90 l
+135.75 54.05 l
+135.75 56.90 l
+157.65 56.90 l
+157.65 51.21 l
+157.65 56.90 l
+179.56 56.90 l
+179.56 54.05 l
+179.56 56.90 l
+201.46 56.90 l
+201.46 51.21 l
+201.46 56.90 l
+223.36 56.90 l
+223.36 54.05 l
+223.36 56.90 l
+245.27 56.90 l
+245.27 51.21 l
+245.27 56.90 l
+267.17 56.90 l
+267.17 54.05 l
+267.17 56.90 l
+289.07 56.90 l
+289.07 51.21 l
+289.07 56.90 l
+310.98 56.90 l
+310.98 54.05 l
+310.98 56.90 l
+315.84 56.90 l
+S
+% END GriPath stroke/fill
+% gr_show_at() BEGIN
+0 g
+0 G
+141.9 15.9 m (Distance \(Km\)) sh
+% gr_show_at() END
+/Helvetica-ISOLatin1 findfont 0.00 sc sf
+0 g
+0 G
+1.0 i 0 J 0 j 0.369 w 10.0 M [] 0 d
+56.90 170.70 m
+70.04 170.70 l
+70.04 176.39 l
+70.04 170.70 l
+91.95 170.70 l
+91.95 173.54 l
+91.95 170.70 l
+113.85 170.70 l
+113.85 176.39 l
+113.85 170.70 l
+135.75 170.70 l
+135.75 173.54 l
+135.75 170.70 l
+157.65 170.70 l
+157.65 176.39 l
+157.65 170.70 l
+179.56 170.70 l
+179.56 173.54 l
+179.56 170.70 l
+201.46 170.70 l
+201.46 176.39 l
+201.46 170.70 l
+223.36 170.70 l
+223.36 173.54 l
+223.36 170.70 l
+245.27 170.70 l
+245.27 176.39 l
+245.27 170.70 l
+267.17 170.70 l
+267.17 173.54 l
+267.17 170.70 l
+289.07 170.70 l
+289.07 176.39 l
+289.07 170.70 l
+310.98 170.70 l
+310.98 173.54 l
+310.98 170.70 l
+315.84 170.70 l
+S
+% END GriPath stroke/fill
+/Helvetica-ISOLatin1 findfont 14.00 sc sf
+% gr_show_at() BEGIN
+0 g
+0 G
+17.1 74.6 m (35.4) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+17.1 120.1 m (35.6) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+17.1 165.7 m (35.8) sh
+% gr_show_at() END
+0 g
+0 G
+1.0 i 0 J 0 j 0.369 w 10.0 M [] 0 d
+56.90 56.90 m
+56.90 79.66 l
+51.21 79.66 l
+56.90 79.66 l
+56.90 125.18 l
+51.21 125.18 l
+56.90 125.18 l
+56.90 170.70 l
+51.21 170.70 l
+56.90 170.70 l
+56.90 170.70 l
+S
+% END GriPath stroke/fill
+% gr_show_at() BEGIN
+0 g
+0 G
+10.2 89.2 m 90.00 rotate (Salinity ) sh
+-90.00 rotate % gr_show_at() END
+/Helvetica-ISOLatin1 findfont 0.00 sc sf
+0 g
+0 G
+1.0 i 0 J 0 j 0.369 w 10.0 M [] 0 d
+315.80 56.90 m
+315.80 79.66 l
+321.49 79.66 l
+315.80 79.66 l
+315.80 125.18 l
+321.49 125.18 l
+315.80 125.18 l
+315.80 170.70 l
+321.49 170.70 l
+315.80 170.70 l
+315.80 170.70 l
+S
+% END GriPath stroke/fill
+/Helvetica-ISOLatin1 findfont 14.00 sc sf
+%gri:
+%gri:show "++++++++++++++++++++++ drawn axes ++++++++++++++++++++++"
+%gri:
+%gri:// Loop around no of graphs
+%gri:// Set loop parameter
+%gri:.loop. = 1
+%gri:.nloops. = {rpn .noofgrphs. 1 +}
+%gri:while {rpn .loop. .nloops. >}
+%gri:
+%gri:show "Entered loop" .loop. " of " .noofgrphs.
+%gri:
+%gri:// Read line and symbol parameters
+%gri:read .lwidth. \lcolor .ndash.
+%gri:read .symb. .ssize. \scolor .decint.
+%gri:
+%gri:if ..debug..
+%gri:show "Line and symbol parameters \lcolor \scolor"
+%gri:end if
+%gri:
+%gri:// Open data file
+%gri:read \data
+%gri:read \xcol
+%gri:read \ycol
+%gri:
+%gri:open "\data"
+%gri:show "reading ctd data \data"
+%gri:
+%gri:
+%gri:read columns x=\xcol y=\ycol   
+%gri:close
+%gri:
+%gri:set clip postscript on 
+%gri:
+%gri://draw curve - none drawn if \lcolor is white or .lwidth. =0
+%gri:set line width .lwidth.
+%gri:set color \lcolor
+%gri:set dash .ndash.
+%gri:if {rpn 0 .lwidth. >}
+%gri:  draw curve
+%gri:end if
+%gri:set line width default
+%gri:set dash off
+%gri:set color black
+%gri:
+%gri://draw symbols - none drawn if .ssize. = 0
+%gri:set symbol size .ssize.
+%gri:set color \scolor
+%gri:.kount. = 0
+%gri:.kdec. = 0
+%gri:.nx. = {rpn ..num_col_data.. 1 -}
+%gri:while {rpn .kount. .nx. >}
+%gri:if {rpn .kdec. .decint. ==}
+%gri:.kdec. = 0
+%gri:draw symbol .symb. at {rpn x .kount. @} {rpn y .kount. @}
+%gri:end if
+%gri:.kount. += 1
+%gri:.kdec. += 1
+%gri:end while
+%gri:set color black
+%gri:
+%gri:set clip postscript off
+%gri:
+%gri:// clean out re-read synonyms
+%gri:delete \lcolor \scolor 
+%gri:
+%gri:.loop. += 1
+%gri: 
+%gri:end while
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+q n % turn clipping on
+56.900000 56.900000 moveto
+315.795000 56.900000 lineto
+315.795000 170.700000 lineto
+56.900000 170.700000 lineto
+h W
+n % turn clipping on
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+1.300 w
+0 g
+0 G
+1.0 i 0 J 1 j 1.300 w 10.0 M [] 0 d
+58.31 141.34 m
+61.81 142.48 l
+65.74 141.57 l
+69.60 146.57 l
+73.46 146.80 l
+77.48 142.71 l
+81.55 146.12 l
+85.62 150.22 l
+89.73 152.49 l
+93.93 152.04 l
+97.97 148.40 l
+102.19 149.99 l
+106.55 155.22 l
+110.84 152.26 l
+115.08 152.49 l
+119.35 151.58 l
+123.68 152.72 l
+128.07 152.95 l
+132.41 152.49 l
+136.81 152.72 l
+141.19 153.86 l
+145.46 148.62 l
+149.70 149.08 l
+154.11 150.22 l
+158.41 148.40 l
+162.38 149.08 l
+165.57 148.40 l
+166.90 149.31 l
+166.99 145.89 l
+167.02 143.84 l
+167.15 148.62 l
+167.41 149.76 l
+167.61 146.57 l
+167.90 146.35 l
+168.15 146.12 l
+168.47 146.57 l
+168.86 147.03 l
+169.13 147.71 l
+169.33 147.03 l
+169.55 146.80 l
+170.01 145.21 l
+169.45 149.08 l
+168.29 147.48 l
+168.75 148.85 l
+169.41 147.26 l
+169.86 146.57 l
+170.24 147.26 l
+170.59 146.12 l
+170.92 147.26 l
+171.22 147.94 l
+171.51 147.71 l
+172.08 148.17 l
+174.11 147.26 l
+177.50 148.85 l
+181.21 147.71 l
+184.67 149.99 l
+187.69 148.17 l
+189.81 147.71 l
+190.62 148.85 l
+190.75 148.85 l
+191.07 147.94 l
+191.39 148.40 l
+191.65 148.17 l
+191.90 148.85 l
+192.16 148.17 l
+192.45 148.40 l
+192.74 148.62 l
+193.00 148.40 l
+193.27 148.85 l
+193.56 148.85 l
+193.77 148.40 l
+193.93 148.85 l
+194.13 148.62 l
+194.34 148.85 l
+195.85 149.08 l
+199.52 149.08 l
+204.08 149.99 l
+209.07 151.58 l
+214.38 149.08 l
+219.96 146.57 l
+225.59 146.80 l
+231.15 149.31 l
+236.72 147.26 l
+242.29 144.53 l
+247.91 145.21 l
+253.48 142.93 l
+259.03 112.43 l
+264.52 109.93 l
+270.00 108.57 l
+275.41 99.23 l
+280.86 91.95 l
+286.46 80.57 l
+291.84 77.16 l
+297.11 72.83 l
+302.49 69.87 l
+307.71 84.21 l
+311.87 88.31 l
+314.36 86.26 l
+314.83 88.99 l
+315.01 87.63 l
+315.22 87.40 l
+315.40 88.76 l
+315.60 87.63 l
+315.85 87.63 l
+S
+% END GriPath stroke/fill
+[] 0 d
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 61.8 142.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 65.7 141.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 69.6 146.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 73.5 146.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 77.5 142.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 81.5 146.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 85.6 150.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 89.7 152.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 93.9 152.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 98.0 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 102.2 150.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 106.6 155.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 110.8 152.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 115.1 152.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 119.3 151.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 123.7 152.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 128.1 152.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 132.4 152.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 136.8 152.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 141.2 153.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 145.5 148.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 149.7 149.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 154.1 150.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 158.4 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 162.4 149.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 165.6 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 166.9 149.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 167.0 145.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 167.0 143.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 167.1 148.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 167.4 149.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 167.6 146.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 167.9 146.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 168.1 146.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 168.5 146.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 168.9 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 169.1 147.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 169.3 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 169.5 146.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 170.0 145.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 169.5 149.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 168.3 147.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 168.8 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 169.4 147.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 169.9 146.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 170.2 147.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 170.6 146.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 170.9 147.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 171.2 147.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 171.5 147.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 172.1 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 174.1 147.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 177.5 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 181.2 147.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 184.7 150.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 187.7 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 189.8 147.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 190.6 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 190.8 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 191.1 147.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 191.4 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 191.7 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 191.9 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 192.2 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 192.5 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 192.7 148.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 193.0 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 193.3 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 193.6 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 193.8 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 193.9 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 194.1 148.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 194.3 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 195.9 149.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 199.5 149.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 204.1 150.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 209.1 151.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 214.4 149.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 220.0 146.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 225.6 146.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 231.2 149.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 236.7 147.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 242.3 144.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 247.9 145.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 253.5 142.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 259.0 112.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 264.5 109.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 270.0 108.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 275.4 99.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 280.9 92.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 286.5 80.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 291.8 77.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 297.1 72.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 302.5 69.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 307.7 84.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 311.9 88.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 314.4 86.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 314.8 89.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 315.0 87.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 315.2 87.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 315.4 88.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 315.6 87.6 m 0.0 _filledbox S
+S Q % turn clipping off
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+q n % turn clipping on
+56.900000 56.900000 moveto
+315.795000 56.900000 lineto
+315.795000 170.700000 lineto
+56.900000 170.700000 lineto
+h W
+n % turn clipping on
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+1.300 w
+0.184 0.31 0.31 rg
+0.184 0.31 0.31 RG
+1.0 i 0 J 1 j 1.300 w 10.0 M [5.690 2.845 ] 2 d
+294.69 68.96 m
+289.46 74.88 l
+284.40 92.63 l
+279.33 94.00 l
+274.17 91.72 l
+269.16 98.55 l
+264.31 107.20 l
+259.41 118.35 l
+254.41 141.11 l
+249.44 143.39 l
+244.57 143.62 l
+239.89 143.84 l
+235.90 145.21 l
+232.79 145.44 l
+229.44 145.89 l
+225.78 145.44 l
+222.17 145.66 l
+218.55 147.71 l
+214.95 148.85 l
+211.44 149.08 l
+207.96 148.40 l
+204.37 147.48 l
+200.80 147.94 l
+197.25 147.94 l
+193.67 147.03 l
+190.16 147.26 l
+186.73 146.80 l
+183.39 145.44 l
+180.02 144.75 l
+176.73 144.75 l
+173.47 144.53 l
+170.05 144.07 l
+166.66 143.62 l
+163.29 142.71 l
+159.87 142.48 l
+156.74 144.07 l
+153.91 147.03 l
+151.10 148.17 l
+147.79 148.17 l
+144.11 148.85 l
+140.55 149.53 l
+136.94 150.22 l
+133.25 150.22 l
+129.62 152.49 l
+126.00 150.67 l
+122.35 150.90 l
+118.72 152.49 l
+115.07 151.13 l
+111.50 149.08 l
+107.92 146.35 l
+104.39 143.39 l
+100.77 142.48 l
+97.16 138.61 l
+93.60 136.79 l
+90.00 136.79 l
+86.37 144.07 l
+82.78 143.84 l
+79.20 139.29 l
+75.68 136.79 l
+72.14 136.33 l
+68.69 139.06 l
+65.16 134.74 l
+61.46 134.06 l
+58.21 137.70 l
+59.62 138.15 l
+S
+% END GriPath stroke/fill
+[] 0 d
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 289.5 74.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 284.4 92.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 279.3 94.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 274.2 91.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 269.2 98.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 264.3 107.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 259.4 118.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 254.4 141.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 249.4 143.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 244.6 143.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 239.9 143.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 235.9 145.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 232.8 145.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 229.4 145.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 225.8 145.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 222.2 145.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 218.6 147.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 215.0 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 211.4 149.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 208.0 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 204.4 147.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 200.8 147.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 197.3 147.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 193.7 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 190.2 147.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 186.7 146.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 183.4 145.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 180.0 144.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 176.7 144.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 173.5 144.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 170.0 144.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 166.7 143.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 163.3 142.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 159.9 142.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 156.7 144.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 153.9 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 151.1 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 147.8 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 144.1 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 140.5 149.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 136.9 150.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 133.2 150.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 129.6 152.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 126.0 150.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 122.4 150.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 118.7 152.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 115.1 151.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 111.5 149.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 107.9 146.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 104.4 143.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 100.8 142.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 97.2 138.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 93.6 136.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 90.0 136.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 86.4 144.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 82.8 143.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 79.2 139.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 75.7 136.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 72.1 136.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 68.7 139.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 65.2 134.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 61.5 134.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 58.2 137.7 m 0.0 _filledbox S
+S Q % turn clipping off
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+q n % turn clipping on
+56.900000 56.900000 moveto
+315.795000 56.900000 lineto
+315.795000 170.700000 lineto
+56.900000 170.700000 lineto
+h W
+n % turn clipping on
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+1.300 w
+0.827 g
+0.827 G
+1.0 i 0 J 1 j 1.300 w 10.0 M [11.380 2.845 ] 2 d
+62.72 137.70 m
+66.51 138.15 l
+69.94 136.79 l
+73.33 138.15 l
+76.82 143.62 l
+80.43 141.57 l
+84.19 140.66 l
+87.97 140.66 l
+91.87 144.07 l
+95.77 135.65 l
+99.75 134.51 l
+103.77 136.56 l
+107.76 140.20 l
+111.75 140.66 l
+115.80 144.75 l
+119.85 147.03 l
+124.00 150.44 l
+127.97 150.90 l
+131.46 150.90 l
+135.12 148.17 l
+139.45 147.03 l
+144.13 148.17 l
+148.48 148.40 l
+152.65 148.17 l
+156.68 147.71 l
+160.53 144.98 l
+164.35 142.02 l
+168.23 142.93 l
+172.16 144.07 l
+176.03 144.98 l
+179.88 146.12 l
+183.74 146.12 l
+187.62 147.03 l
+191.45 147.03 l
+195.19 147.03 l
+198.86 147.26 l
+202.50 147.48 l
+206.17 147.71 l
+209.82 148.40 l
+213.48 148.62 l
+217.13 148.85 l
+220.84 148.40 l
+224.57 148.17 l
+228.28 147.48 l
+231.92 146.35 l
+235.00 145.89 l
+237.46 145.21 l
+239.19 144.98 l
+239.59 144.53 l
+239.22 144.07 l
+238.95 144.30 l
+239.38 144.53 l
+240.88 144.53 l
+243.15 144.07 l
+244.93 143.84 l
+246.89 143.84 l
+249.42 143.39 l
+252.05 141.11 l
+254.59 131.10 l
+256.90 122.90 l
+258.89 117.21 l
+260.86 111.30 l
+262.84 110.16 l
+264.98 109.93 l
+267.14 101.96 l
+269.23 106.74 l
+271.30 111.30 l
+273.41 111.52 l
+275.52 108.57 l
+277.59 105.61 l
+279.68 103.56 l
+281.84 102.19 l
+283.97 101.05 l
+284.46 100.14 l
+283.80 100.37 l
+283.10 99.92 l
+282.56 101.28 l
+282.27 101.51 l
+282.02 101.05 l
+281.58 102.42 l
+280.99 102.88 l
+280.36 104.24 l
+279.71 105.38 l
+279.06 106.06 l
+278.31 106.52 l
+277.06 106.74 m
+277.37 108.11 l
+278.69 106.06 l
+280.54 104.92 l
+282.55 103.79 l
+284.64 101.96 l
+287.21 99.92 l
+289.95 93.77 l
+292.64 92.86 l
+295.35 88.31 l
+298.05 84.89 l
+300.72 83.07 l
+303.38 83.07 l
+306.07 82.62 l
+308.96 80.34 l
+311.36 79.43 l
+313.40 83.53 l
+314.03 91.04 l
+S
+% END GriPath stroke/fill
+[] 0 d
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 66.5 138.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 69.9 136.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 73.3 138.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 76.8 143.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 80.4 141.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 84.2 140.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 88.0 140.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 91.9 144.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 95.8 135.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 99.8 134.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 103.8 136.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 107.8 140.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 111.8 140.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 115.8 144.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 119.8 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 124.0 150.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 128.0 150.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 131.5 150.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 135.1 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 139.4 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 144.1 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 148.5 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 152.7 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 156.7 147.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 160.5 145.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 164.4 142.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 168.2 142.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 172.2 144.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 176.0 145.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 179.9 146.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 183.7 146.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 187.6 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 191.5 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 195.2 147.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 198.9 147.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 202.5 147.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 206.2 147.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 209.8 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 213.5 148.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 217.1 148.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 220.8 148.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 224.6 148.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 228.3 147.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 231.9 146.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 235.0 145.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 237.5 145.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 239.2 145.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 239.6 144.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 239.2 144.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 239.0 144.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 239.4 144.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 240.9 144.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 243.1 144.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 244.9 143.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 246.9 143.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 249.4 143.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 252.1 141.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 254.6 131.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 256.9 122.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 258.9 117.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 260.9 111.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 262.8 110.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 265.0 109.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 267.1 102.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 269.2 106.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 271.3 111.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 273.4 111.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 275.5 108.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 277.6 105.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 279.7 103.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 281.8 102.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 284.0 101.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 284.5 100.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 283.8 100.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 283.1 99.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 282.6 101.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 282.3 101.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 282.0 101.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 281.6 102.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 281.0 102.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 280.4 104.2 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 279.7 105.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 279.1 106.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 278.3 106.5 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 277.5 219395.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 277.1 106.7 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 277.4 108.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 278.7 106.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 280.5 104.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 282.6 103.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 284.6 102.0 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 287.2 99.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 289.9 93.8 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 292.6 92.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 295.3 88.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 298.0 84.9 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 300.7 83.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 303.4 83.1 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 306.1 82.6 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 309.0 80.3 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 311.4 79.4 m 0.0 _filledbox S
+%^ scale 1 56.9 43 -4.38063 1 56.9 35.3 227.6
+0.369 w
+0 g
+0 G
+0.369 w
+n 313.4 83.5 m 0.0 _filledbox S
+S Q % turn clipping off
+%gri://draw line from 3 0 to 9 0
+%gri:close
+%gri:show "++++++++++++++++++++++ TS plots drawn ++++++++++++++++++++++"
+%gri:
+%gri://draw isopycnals
+%gri:open "\conf"
+%gri:skip  {rpn 5 .noofgrphs. * 26 +} //Ricardo's correction
+%gri://skip  91 //Ricardo's correction
+%gri:
+%gri:set clip on
+%gri:set font size {rpn .axfontsiz. 4 -}
+/Helvetica-ISOLatin1 findfont 10.00 sc sf
+%gri:read .noiso.
+%gri:.noiso. += 1
+%gri:.loop. = 1
+%gri:while {rpn .loop. .noiso. >}
+%gri:read \iso
+%gri:show \iso
+%gri:draw isopycnal \iso
+%gri:.loop. += 1 
+%gri:end while
+%gri:close  
+%gri:show "++++++++++++++++++++++ Isopycnals done ++++++++++++++++++++++"
+%gri:
+%gri:
+%gri:open "\conf"
+%gri:skip  {rpn 5 .noofgrphs. * 38 +} //Ricardo's correction
+%gri:
+%gri:read .nlabs.
+%gri:show .nlabs.
+%gri://.nlabs. = {rpn .nlabs. 1 +}
+%gri:.labloop. = 0
+%gri:while {rpn .labloop. .nlabs. >}
+%gri:  read line \lab
+%gri:  read \colr
+%gri:  read .lsiz. .lx. .ly. .lrot.
+%gri:  set font size .lsiz.
+%gri:  set color "\colr"
+%gri:  draw label "\lab" centered at .lx. .ly. rotated .lrot.
+%gri:  .labloop. = {rpn .labloop. 1 +}
+%gri:end while
+%gri:set font size default
+/Helvetica-ISOLatin1 findfont 12.00 sc sf
+%gri:set color black
+%gri:close
+%gri:show "+++++++++++++++++++++ Labels drawn ++++++++++++++++++++++++++"
+%gri:
+%gri:
+%gri:if ..debug..
+%gri:	show all
+%gri:end if
+%gri:
+%gri:
+%gri:if !..publication..
+%gri:draw time stamp
+%gri:set font size 8
+%gri:draw essay "Control file \conf"
+%gri:draw essay "Datafile \data"
+%gri:end if
+%gri:
+%gri:quit
+showpage
+%%Trailer
+%%BoundingBox: 0 11 323 178
+%%DocumentFonts: Courier Helvetica Palatino-Roman Palatino-Italic Symbol Times-Roman
+%%Pages: 1

@@ -1,0 +1,91 @@
+%\coversheet{APPENDIX}
+% \notchapter{odd}{APPENDIX}{y}
+% \renewcommand{\thechapter}{A}
+% \setcounter{section}{0}
+\chapter{Supplementary Information to Chapter \ref{ch:summer}}
+\section{Processing of FLY data}\label{ap:fly}
+
+
+A more thorough description of the processing of the FLY data can
+be found in \citet{Inall98}.
+
+The free falling FLY (Fast, Light, Yo-Yo) IV profiler was built by
+Chris Mackay of Systech Instruments. The instrument is equipped by
+two fast response airfoil shear sensors made of a small
+piezoceramic bimorph plate that responds to shear strain by
+generating a voltage. The sensor is able to detect shears between
+0 and 4\shear with a precision of $\pm$5\% and a response length
+of 0.01-0.02m \citep{Dewey87} measuring at 280Hz. Two shear
+sensors operate in the instrument giving one replica of energy
+dissipation.
+
+Further to the shear, the instrument also measures differential
+temperature at 140Hz, and conductivity, temperature, tilt, and
+pressure at 20Hz, the so called slow response sensors.
+
+The probe is operated by dropping it from the stern of a slowly
+moving ship ($\sim$0.25\vel) and letting it free fall, the data
+relayed on board through a Kevlar Multi-Conductor cable. While it
+falls with a constant velocity $W$ (normally attained within
+10-20m of the surface), it experiences a sideways lift force, $F$,
+due to the horizontal component of the turbulent velocity
+fluctuations, $u$, which is given by \citep{Crawford76}
+\begin{equation}
+F=\frac{1}{2}\rho\tilde{W}^2A sin 2\phi
+\end{equation}
+
+where $\tilde{W}^2=W^2 + u^2$ is the apparent velocity past the
+probe; $A$ is the effective cross-sectional area of the probe;
+$\rho$ is the density of seawater; and $\phi=tan^-1 \frac{u}{W}$
+is the angle of $\tilde{W}$ to the probe. With small $\phi$
+($<$5\deg), the instantaneous shear is given by
+\begin{equation}
+\frac{\partial u}{\partial z}=\frac{1}{CW^2}\frac{\partial
+\varsigma}{\partial t}
+\end{equation}
+
+where C is a calibration constant and $\varsigma$ (proportional to
+$F$) is the output voltage from the sensor. To arrive at the shear
+estimates, the fall velocity needs to be generated at 240Hz, which
+is done by fitting a third order polynomial to the pressure record
+and calculating its first derivative.
+
+The dissipation rate per unit volume, $\epsilon$, is calculated
+from the variance of the shear time series
+\begin{equation}
+\epsilon = 7.5 \nu \overline{\left( \frac{\partial u}{\partial
+z}\right) }^2
+\end{equation}
+where $\nu = 1.049\times 10^6$\mix is the kinematic viscosity of
+seawater.
+
+The variance is obtained by integrating the power spectrum of the
+shear time series. Subset of the time series of size N=1024 were
+used in the main water column resulting in $\sim$2m blocks, while
+near the bed, smaller segments were used. The segments overlapped
+by N/2 and each were detrended, multiplied by an N point Hanning
+cosine window and its power spectral density calculated through
+the Welch's method as
+\begin{equation}
+P(f)=\frac{2\Delta t X(f)^2 V}{N}
+\end{equation}
+
+where $2\Delta t$ is the inverse Nyquist frequency, $V$ the
+variance lost by applying a cosine window to the series subset,
+and $X(f)$ the first N/2 values of the N point Fast Fourier
+Transform of the subset. Further corrections are then applied to
+account for the decreased in the probe sensitivity to frequencies
+higher than 45Hz \citep{Inall98}. Finally, $\epsilon$ is obtained
+by integrating $P(f)$ between 1.5Hz and 55Hz.
+
+The conductivity and temperature sensors were compared and
+calibrated against simultaneous CTD casts during the CD114 cruise.
+A linear correction was found and applied to the conductivity data
+as
+\begin{equation}
+CTDc=1.127\times FLYc -6.4595 (R^2=0.987)
+\end{equation}
+where CTDc is the conductivity from the CTD and FLYc the
+conductivity from the FLY instrument. The temperature data were
+found to be in agreement to the CTD data and no correction was
+applied.

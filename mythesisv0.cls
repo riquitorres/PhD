@@ -20,7 +20,7 @@
 
 \newif\ifversioninfo\versioninfofalse
 
-\DeclareOption{draft}{\PassOptionsToClass{draft}{report}}
+% \DeclareOption{draft}{\PassOptionsToClass{draft}{report}}
 \DeclareOption{10pt}{\PassOptionsToClass{10pt}{report}}
 \DeclareOption{11pt}{\PassOptionsToClass{11pt}{report}}
 \DeclareOption{12pt}{\PassOptionsToClass{12pt}{report}}
@@ -31,7 +31,7 @@
 
 \ProcessOptions\relax
 
-\LoadClass[letterpaper]{report}
+\LoadClass[a4paper]{report}
 
 %% PAGE LAYOUT
 \RequirePackage[hmargin=3.5cm,vmargin=3.5cm]{geometry}
@@ -66,7 +66,7 @@
 % All pages with number in bottom right
 % Non-"plain" pages: chapter number in top right
 % Page numbering in lowercase roman during front-matter
-\usepackage{gitinfo}
+\RequirePackage{gitinfo}
 \RequirePackage{fancyhdr}
 \pagestyle{plain}
 \renewcommand{\headrulewidth}{0pt}
@@ -90,7 +90,7 @@
 %\renewcommand{\chaptermark}[1]{\markboth{\spacedlowcaps{#1}}{\spacedlowcaps{#1}}}
 %\fancyhead[LE,RO]{\footnotesize{\chaptermark}}
 %\fancyhead[LE,RO]{\textssc{\footnotesize{\MakeTextLowercase{\leftmark}}}}
-% \usepackage{nameref}
+% \RequirePackage{nameref}
 % \fancyhead[LE,RO]{\footnotesize{\spacedsmallcaps{\chaptername}}}
 
 % This will set the page numbering to arabic and include the chapter
@@ -150,9 +150,9 @@
 \def\year{\gdef\@year}
 
 % Defaults:
-\def\@institution{The University of British Columbia}
-\def\@faculty{The Faculty of Graduate and Postdoctoral Studies}
-\def\@campus{Vancouver}
+\def\@institution{The University of Bangor, North Wales}
+\def\@faculty{The School of Ocean Sciences}
+\def\@campus{Menai Bridge, Gwynedd}
 
 \def\maketitle{
 \thispagestyle{empty}
@@ -212,7 +212,7 @@
 % into 5.5em.  There is a case that the tables should be srunk down to
 
 \titlecontents{figure}[5.5em]{}{%
-  \makebox[0pt][l]{\hspace*{-5.5em}\sc Figure \thecontentslabel\enspace}}%
+  \makebox[0pt][l]{\hspace*{-6.2em}\sc Figure \thecontentslabel\enspace}}%
 {}{\titlerule*[1pc]{.}\contentspage}
 
 \titlecontents{table}[5.5em]{}{%
@@ -264,12 +264,12 @@
 % \newrefformat{fig}{Figure \ref{#1}}
 % \newrefformat{tab}{Table \ref{#1}}
 
-\usepackage{refstyle}
+\RequirePackage{refstyle}
 % Capitalise figure references like so:
 %\renewcommand{\figref}{\Figref}
 
 % Subtle hyperlinking
-\usepackage[colorlinks,citecolor=black,linkcolor=black,urlcolor=black]{hyperref}
+\RequirePackage[colorlinks,citecolor=black,linkcolor=black,urlcolor=black]{hyperref}
 \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
 
 % A very simple abstract environment that omits the title.
@@ -307,10 +307,10 @@
 % One float per page, as per
 % http://www.tex.ac.uk/cgi-bin/texfaq2html?label=floatpages+vertposfp
 \renewcommand\floatpagefraction{.001}
-\setlength\@fpsep{\textheight}
+\setlength\@fpsep{\the\textheight}
 
 % Verbatim control:
-\usepackage{fancyvrb}
+\RequirePackage{fancyvrb}
 \DefineVerbatimEnvironment{Sinput}{Verbatim}{fontshape=sl,xleftmargin=1em,%
 frame=none,baselinestretch=1,fontsize=\relsize{-.5}}
 \DefineVerbatimEnvironment{Soutput}{Verbatim}{xleftmargin=1em,%
@@ -320,15 +320,15 @@ frame=none,baselinestretch=1,fontsize=\relsize{-.5}}
 %\newenvironment{Schunk}{\vspace{\topsep}}{\vspace{\topsep}}
 %\newenvironment{Schunk}{\vspace{\topsep}}{}
 \newenvironment{Schunk}{\vspace{.67\baselineskip}}{\vspace{.33\baselineskip}}
-\usepackage{tabularx}
+\RequirePackage{tabularx}
 
 % Hyphenatable code (doesn't always work manually though)
 \newcommand\codeh[1]{\texttt{\hyphenchar\font=45\relax #1}}
 % Allow \-/ hyphenation of already-hyphen\-/ated words
-\usepackage[shortcuts]{extdash}
+\RequirePackage[shortcuts]{extdash}
 
 % FoGS wants continuously numbered footnotes:
-\usepackage{chngcntr}
+\RequirePackage{chngcntr}
 \counterwithout{footnote}{chapter}
 
 % This is needed to stop some really weird paragraph spacing.

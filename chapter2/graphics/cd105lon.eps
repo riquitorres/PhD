@@ -1,0 +1,5676 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Creator: Gri2.6.4 (released 2001-06-23).  User=, commandfile=d:\programs\gri\gri\timeseries
+%%Title: d:\programs\gri\gri\timeseries.ps
+%%CreationDate: Mon Sep 03 14:53:52 2001
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%TemplateBox: 0 0 612 792
+%%DocumentFonts: (atend)
+%%Endcomments
+% NOTE: The Gri postscript dictionary is being converted to the Adobe
+% Illustrator 3.0 dialect of PostScript, as described in the Adobe
+% documents stored at URL
+%   http://www.adobe.com/Support/TechNotes.html
+% (as of Jan 1996, this doc is number 5007).  When the conversion
+% is complete, the Adobe Illustrator drawing program -- and any
+% program compatible with AI -- will be able to edit Gri output.
+%
+% The IslandDraw (TM) program is able to read Gri output
+% at this time; remarkably, it can read/edit arbitrary PostScript.
+%
+% The definitions below are presented in the same order as the Adobe
+% manual.  The stack configuration before and after is shown in curly
+% brackets.  All the operators are listed, but only some are defined
+% here. Most things are faithful, except that no distinction is made
+% between colors for stroking and filling paths.  The string 'WRONGLY'
+% appears with commands that are approximations.
+%
+% PDF-style abbreviations:
+/rg {setrgbcolor} def   % {red green blue}            {-} set RGB color
+/RG {setrgbcolor} def   % {red green blue}            {-} set RGB color
+/q {gsave} def
+/Q {grestore} def
+/W {clip} def
+/W* {eoclip} def
+%
+% Gri-specific abbreviations:
+/hsb {sethsbcolor} def  % {hue saturation brightness} {-} set HSB color
+%
+% Following all try to mimic Adobe Illustrator
+%
+% Mimicking section 5.1 of Adobe manual:
+%A                      % {flag A}          {-} Determine whether
+                        %                       following object can
+                        %                       be selected. Flag=1
+                        %                       prevents selection;
+                        %                       flag=0 allows it.
+
+% Mimicking section 5.2 of Adobe manual:
+%u                      % {u}               {-} start group
+%U                      % end group
+%q                      % as 'u' but first item is a clip path
+%Q                      % as 'U' but first item is a clip path
+
+% Mimicking section 5.3 of Adobe manual:
+/g {setgray} def        % {gray g}          {-} Set gray for fill
+                        %                       path, WRONGLY used
+                        %                       for stroking also. 
+/G {setgray} def        % As 'g', but for filling path.
+%k                      % Set cmyk color for filling path.
+%K                      % As 'k', but for stroking path.
+%x                      % Set cmyk custom color for filling path.
+%X                      % As 'x' but for stroking path.
+%p                      % Define pattern for filling path.
+%P                      % As 'p' but for stroking path.
+%O                      % Specify whether overprinting for fill paths
+%R                      % As 'O' but for stroking path.
+
+% Mimicking section 5.4 of Adobe manual:
+/d {setdash} def        % {[array] phase d} {-} Set dash.
+/i {setflat} def        % {flatness i}      {-} Set flatness.
+/j {setlinejoin} def    % {linejoin j}      {-} Set line join.
+/J {setlinecap} def     % {linecap J}       {-} Set line cap.
+/M {setmiterlimit} def  % {miterlimit M}    {-} Set miter limit.
+/w {setlinewidth} def   % {linewidth w}     {-} Set line width.
+
+% Mimicking section 5.5 of Adobe manual:
+/m {moveto} def         % {x y m}           {-} Move to locn
+/l {lineto} def         % {x y l}           {-} Draw line to locn
+                        %                       not a smooth point.
+                        %                       WRONGLY, no
+                        %                       distinction is made
+                        %                       between smooth and
+                        %                       corner. 
+%L                      % {x y L}           {-} As 'l' but a corner
+%c                      % Bezier curve to smooth point.
+%C                      % As 'c' but to corner point.
+%v                      % Something else to do with Bezier.
+%V                      % 
+%y                      % 
+%Y                      % 
+
+% Mimicking section 5.6 of Adobe manual:
+%N                      % {N}               {-} As 'n' for nondrawn stuff
+/n {newpath} def        % {n}               {-} WRONGLY interpreted
+                        %                       as path constructor
+/F {fill} def           % {F}               {-} Fill current path.
+%f                      % {f}               {-} 'F' but close first
+/S {stroke} def         % {S}               {-} Stroke current path.
+%s                      % {s}               {-} 'S' but close first
+%B                      % {B}               {-} As 's' but don't empty path.
+%b                      % {b}               {-} As 'f' but don't empty path.
+%H                      % no-op (weird huh?)
+/h {closepath} def      % {h}               {-} Close  current path
+%W                      % Used to create masks.
+
+% Mimicking section 5.7 of Adobe manual:
+%a                      % Begin text block ...
+%e                      % Similar to 'a' but ...
+%I                      % Similar to 'a' but ...
+%o                      % Similar to 'a' but ...
+%r                      % Similar to 'a' but ...
+%t                      % {len (string) t}  {-} Render string.
+%T                      % End block of text
+
+% That's the end of the Illustrator stuff. Following are some Gri
+% definitions which provide a temporary way of handling fonts. 
+/sf {setfont} def       % {fontname sf}     {-} Set font name.
+/sh {show} def          % {(text) sh}       {-} Show text.
+/sc {scalefont} def     % {size sc}         {-} Scale font.
+% Gri items which should be translated to Illustrator format:
+/rl {rlineto} def
+/rm {rmoveto} def
+% Procedures
+/cimdict 7 dict def
+/cim {
+ cimdict begin
+ /cl exch def
+ /rw exch def
+ /yur exch def
+ /xur exch def
+ /yll exch def
+ /xll exch def
+ q
+ xll yll translate
+ xur xll sub yur yll sub scale
+ /do cl 3 mul string def
+ cl rw 8 [cl 0 0 rw neg 0 rw] {currentfile do readhexstring pop} false 3 colorimage
+ Q
+ end
+} def
+/imdict 14 dict def
+/im {
+ imdict begin
+ /cl exch def
+ /rw exch def
+ /yur exch def
+ /xur exch def
+ /yll exch def
+ /xll exch def
+ /imagemap exch def
+ q
+ % Until version 2.6.0 used a 'settransfer' here, but that
+ % triggers a bug in ps2pdf
+ xll yll translate
+ xur xll sub yur yll sub scale
+ /do cl string def
+ cl rw 8 [cl 0 0 rw neg 0 rw]
+ {currentfile do readhexstring pop
+  dup length 1 sub 0 1 3 -1 roll
+    { 1 index exch
+      2 copy get imagemap exch get 255 mul cvi put
+    }
+  for
+ }image
+ Q
+ end
+} bind def
+/frdict  5 dict def
+/fr {
+ frdict begin
+ /yt exch def
+ /xr exch def
+ /yb exch def
+ /xl exch def
+ n
+ xl yb m
+ xl yt l
+ xr yt l
+ xr yb l
+ h
+ F
+ n
+ end
+} def
+/plusdict 3 dict def
+/_plus {
+ plusdict begin
+ dup 0.5 mul /t0 exch def
+ /t1 exch def
+ 0 t0 rm
+ 0 t1 neg rl
+ t0 neg t0 rm
+ t1 0 rl
+ t0 neg 0 rm
+ end
+} def
+/timesdict 3 dict def
+/_times {
+ timesdict begin
+ dup 0.353553 mul /t0 exch def
+ 0.707106 mul /t1 exch def
+ t0 neg t0 rm
+ t1 dup neg rl
+ t1 neg 0 rm
+ t1 dup rl
+ t0 neg dup rm
+ end
+} def
+/boxdict 3 dict def
+/_box {
+ boxdict begin
+ dup 0.5 mul /t0 exch def
+ 1 mul /t1 exch def
+ t0 neg t0 rm
+ t1 0 rl
+ 0 t1 neg rl
+ t1 neg 0 rl
+ h
+ t0 dup neg rm
+ end
+} def
+/filledboxdict 3 dict def
+/_filledbox {
+ filledboxdict begin
+ dup 0.5 mul /t0 exch def
+ 1 mul /t1 exch def
+ t0 neg t0 rm
+ t1 0 rl
+ 0 t1 neg rl
+ t1 neg 0 rl
+ h
+ t0 dup neg rm
+ F end
+} def
+/diamonddict 2 dict def
+/_diamond {
+ diamonddict begin
+ 0.5 mul /t0 exch def
+ t0 neg 0 rm
+ t0 dup rl
+ t0 dup neg rl
+ t0 neg dup rl
+ h
+ t0 0 rm
+ end
+} def
+/filleddiamonddict 2 dict def
+/_filleddiamond {
+ filleddiamonddict begin
+ 0.5 mul /t0 exch def
+ t0 neg 0 rm
+ t0 dup rl
+ t0 dup neg rl
+ t0 neg dup rl
+ h
+ t0 0 rm
+ F end
+} def
+/triangleupdict 5 dict def
+/_triangleup {
+ triangleupdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t1 neg t0 neg rm
+ t1 t2 rl
+ t1 t2 neg rl
+ h
+ t1 t0 rm
+ end
+} def
+/filledtriangleupdict 5 dict def
+/_filledtriangleup {
+ filledtriangleupdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t1 neg t0 neg rm
+ t1 t2 rl
+ t1 t2 neg rl
+ h
+ t1 t0 rm
+ F end
+} def
+/trianglerightdict 5 dict def
+/_triangleright {
+ trianglerightdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t0 neg t1 rm
+ t2 t1 neg rl
+ t2 neg t1 neg rl
+ h
+ t0 t1 neg rm
+ end
+} def
+/filledtrianglerightdict 5 dict def
+/_filledtriangleright {
+ filledtrianglerightdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t0 neg t1 rm
+ t2 t1 neg rl
+ t2 neg t1 neg rl
+ h
+ t0 t1 neg rm
+ F end
+} def
+/triangledowndict 5 dict def
+/_triangledown {
+ triangledowndict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t1 neg t0 rm
+ t3 0 rl
+ t1 neg t2 neg rl
+ h
+ t1 t0 neg rm
+ end
+} def
+/filledtriangledowndict 5 dict def
+/_filledtriangledown {
+ filledtriangledowndict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t1 neg t0 rm
+ t3 0 rl
+ t1 neg t2 neg rl
+ h
+ t1 t0 neg rm
+ F end
+} def
+/triangleleftdict 5 dict def
+/_triangleleft {
+ triangleleftdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t0 t1 rm
+ 0 t3 neg rl
+ t2 neg t1 rl
+ h
+ t0 neg t1 neg rm
+ end
+} def
+/filledtriangleleftdict 5 dict def
+/_filledtriangleleft {
+ filledtriangleleftdict begin
+ dup 0.25 mul /t0 exch def
+ dup 0.433013 mul /t1 exch def
+ dup 0.75 mul /t2 exch def
+ 0.866026 mul /t3 exch def
+ t0 t1 rm
+ 0 t3 neg rl
+ t2 neg t1 rl
+ h
+ t0 neg t1 neg rm
+ F end
+} def
+/circdict 5 dict def
+/_circ {
+ circdict begin
+ 0.5 mul /t0 exch def
+ currentpoint
+ /t2 exch def
+ /t1 exch def
+ S n t1 t2 t0 0 360 arc
+ t1 t2 m
+ end
+} def
+/bulldict 3 dict def
+/_bull {
+ bulldict begin
+ 0.5 mul /r exch def
+ currentpoint /y exch def /x exch def
+ S n x y r 0 360 arc h F S
+ end
+} def
+/filledhalfmoonupdict 3 dict def
+/_filledhalfmoonup {
+ bulldict begin
+ 0.5 mul /r exch def
+ currentpoint /y exch def /x exch def
+ S n x y r 0 180 arc h F S
+ end
+} def
+/filledhalfmoondowndict 3 dict def
+/_filledhalfmoondown {
+ bulldict begin
+ 0.5 mul /r exch def
+ currentpoint /y exch def /x exch def
+ S n x y r 180 360 arc h F S
+ end
+} def
+1 1 scale
+10.0 M
+1 j
+/Courier findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Courier-ISOLatin1 exch definefont pop
+/Courier-Oblique findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Courier-Oblique-ISOLatin1 exch definefont pop
+/Courier-Bold findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Courier-Bold-ISOLatin1 exch definefont pop
+/Courier-BoldOblique findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Courier-BoldOblique-ISOLatin1 exch definefont pop
+/Helvetica findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Helvetica-ISOLatin1 exch definefont pop
+/Helvetica-Bold findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Helvetica-Bold-ISOLatin1 exch definefont pop
+/Helvetica-Oblique findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Helvetica-Oblique-ISOLatin1 exch definefont pop
+/Palatino-Roman findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Palatino-Roman-ISOLatin1 exch definefont pop
+/Palatino-Italic findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Palatino-Italic-ISOLatin1 exch definefont pop
+/Palatino-Bold findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Palatino-Bold-ISOLatin1 exch definefont pop
+/Palatino-BoldItalic findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Palatino-BoldItalic-ISOLatin1 exch definefont pop
+/Symbol findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Symbol-ISOLatin1 exch definefont pop
+/Times-Roman findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Times-Roman-ISOLatin1 exch definefont pop
+/Times-Italic findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Times-Italic-ISOLatin1 exch definefont pop
+/Times-Bold findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Times-Bold-ISOLatin1 exch definefont pop
+/Times-BoldItalic findfont dup length dict begin
+  {1 index /FID ne {def} {pop pop} ifelse } forall
+  /Encoding ISOLatin1Encoding def
+  currentdict
+end
+/Times-BoldItalic-ISOLatin1 exch definefont pop
+%%EndProlog
+%%Page: 1 1
+/Helvetica-ISOLatin1 findfont 12.00 sc sf
+%gri:# Gri was invoked by user named
+%gri:#     
+%gri:# on host named
+%gri:#     unknown
+%gri:# using the command
+%gri:#    gri -p d:\programs\gri\gri\timeseries
+%gri:# at time Mon Sep 03 14:53:52 2001.
+%gri:expecting version 2.050
+%gri:// tsplot.gri plots ts data with overlaid sigma-t or spiciness curves
+%gri:// Set missing value (end of curve) to 999. Corrected for watermasses drawing
+%gri:set missing value 999.000
+%gri://
+%gri:if ..debug..
+%gri:..trace.. = 1
+%gri:end if
+%gri:
+%gri:// Define  control file
+%gri:
+%gri:\CON_DATA = "control.ts"
+%gri:query \conf "Control file?  " ("\CON_DATA")
+%gri:
+%gri:open "\conf"
+%gri:skip 5
+%gri:read \orientation
+%gri:read .fac.
+%gri:read .noofgrphs.
+%gri:skip
+%gri: 
+%gri:// Font size and axis line width
+%gri:read  .axfontsiz. .axlw.
+%gri:
+%gri:// Set up the x axis.
+%gri:read .xsiz.
+%gri:read .xoff.
+%gri:read  line \xlab
+%gri:read .xmin.
+%gri:read .xmax.
+%gri:read .xtic.
+%gri:read .xtic2.
+%gri:
+%gri:// Set up the y axis.
+%gri:read .ysiz.
+%gri:read .yoff.
+%gri:read line \ylab
+%gri:read .ymin.
+%gri:read .ymax.
+%gri:read .ytic.
+%gri:read .ytic2.
+%gri:skip
+%gri:
+%gri:show "++++++++++++++++++++++ Read axis info ++++++++++++++++++++++"
+%gri:
+%gri:set page \orientation
+%gri:set page factor .fac.
+1 1 scale
+%gri:
+%gri:set line width .axlw.
+%gri:set font size .axfontsiz.
+/Helvetica-ISOLatin1 findfont 15.00 sc sf
+%gri://set font to Times
+%gri:
+%gri:set x size .xsiz.
+%gri:set x margin .xoff.
+%gri:set x axis .xmin. .xmax. .xtic. .xtic2.
+%gri:set x name \xlab
+%gri:set y size .ysiz.
+%gri:set y margin .yoff. 
+%gri:set y axis .ymin. .ymax. .ytic. .ytic2.
+%gri:set y name \ylab
+%gri:
+%gri:draw axes
+% gr_show_at() BEGIN
+0 g
+0 G
+72.8 89.2 m (160) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+100.7 89.2 m (161) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+128.7 89.2 m (162) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+156.6 89.2 m (163) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+184.5 89.2 m (164) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+212.5 89.2 m (165) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+240.4 89.2 m (166) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+268.3 89.2 m (167) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+296.3 89.2 m (168) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+324.2 89.2 m (169) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+352.1 89.2 m (170) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+380.1 89.2 m (171) sh
+% gr_show_at() END
+0 g
+0 G
+1.0 i 0 J 0 j 0.369 w 10.0 M [] 0 d
+85.35 113.80 m
+85.35 113.80 l
+85.35 108.11 l
+85.35 113.80 l
+99.32 113.80 l
+99.32 110.96 l
+99.32 113.80 l
+113.28 113.80 l
+113.28 108.11 l
+113.28 113.80 l
+127.25 113.80 l
+127.25 110.96 l
+127.25 113.80 l
+141.22 113.80 l
+141.22 108.11 l
+141.22 113.80 l
+155.18 113.80 l
+155.18 110.96 l
+155.18 113.80 l
+169.15 113.80 l
+169.15 108.11 l
+169.15 113.80 l
+183.11 113.80 l
+183.11 110.96 l
+183.11 113.80 l
+197.08 113.80 l
+197.08 108.11 l
+197.08 113.80 l
+211.05 113.80 l
+211.05 110.96 l
+211.05 113.80 l
+225.01 113.80 l
+225.01 108.11 l
+225.01 113.80 l
+238.98 113.80 l
+238.98 110.96 l
+238.98 113.80 l
+252.95 113.80 l
+252.95 108.11 l
+252.95 113.80 l
+266.91 113.80 l
+266.91 110.96 l
+266.91 113.80 l
+280.88 113.80 l
+280.88 108.11 l
+280.88 113.80 l
+294.85 113.80 l
+294.85 110.96 l
+294.85 113.80 l
+308.81 113.80 l
+308.81 108.11 l
+308.81 113.80 l
+322.78 113.80 l
+322.78 110.96 l
+322.78 113.80 l
+336.74 113.80 l
+336.74 108.11 l
+336.74 113.80 l
+350.71 113.80 l
+350.71 110.96 l
+350.71 113.80 l
+364.68 113.80 l
+364.68 108.11 l
+364.68 113.80 l
+378.64 113.80 l
+378.64 110.96 l
+378.64 113.80 l
+392.61 113.80 l
+392.61 108.11 l
+392.61 113.80 l
+392.64 113.80 l
+S
+% END GriPath stroke/fill
+% gr_show_at() BEGIN
+0 g
+0 G
+222.3 70.3 m (1997) sh
+% gr_show_at() END
+/Helvetica-ISOLatin1 findfont 0.00 sc sf
+0 g
+0 G
+1.0 i 0 J 0 j 0.369 w 10.0 M [] 0 d
+85.35 227.60 m
+85.35 227.60 l
+85.35 233.29 l
+85.35 227.60 l
+99.32 227.60 l
+99.32 230.44 l
+99.32 227.60 l
+113.28 227.60 l
+113.28 233.29 l
+113.28 227.60 l
+127.25 227.60 l
+127.25 230.44 l
+127.25 227.60 l
+141.22 227.60 l
+141.22 233.29 l
+141.22 227.60 l
+155.18 227.60 l
+155.18 230.44 l
+155.18 227.60 l
+169.15 227.60 l
+169.15 233.29 l
+169.15 227.60 l
+183.11 227.60 l
+183.11 230.44 l
+183.11 227.60 l
+197.08 227.60 l
+197.08 233.29 l
+197.08 227.60 l
+211.05 227.60 l
+211.05 230.44 l
+211.05 227.60 l
+225.01 227.60 l
+225.01 233.29 l
+225.01 227.60 l
+238.98 227.60 l
+238.98 230.44 l
+238.98 227.60 l
+252.95 227.60 l
+252.95 233.29 l
+252.95 227.60 l
+266.91 227.60 l
+266.91 230.44 l
+266.91 227.60 l
+280.88 227.60 l
+280.88 233.29 l
+280.88 227.60 l
+294.85 227.60 l
+294.85 230.44 l
+294.85 227.60 l
+308.81 227.60 l
+308.81 233.29 l
+308.81 227.60 l
+322.78 227.60 l
+322.78 230.44 l
+322.78 227.60 l
+336.74 227.60 l
+336.74 233.29 l
+336.74 227.60 l
+350.71 227.60 l
+350.71 230.44 l
+350.71 227.60 l
+364.68 227.60 l
+364.68 233.29 l
+364.68 227.60 l
+378.64 227.60 l
+378.64 230.44 l
+378.64 227.60 l
+392.61 227.60 l
+392.61 233.29 l
+392.61 227.60 l
+392.64 227.60 l
+S
+% END GriPath stroke/fill
+/Helvetica-ISOLatin1 findfont 15.00 sc sf
+% gr_show_at() BEGIN
+0 g
+0 G
+59.0 108.4 m () sh
+(\255) sh
+(9) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+50.6 165.3 m () sh
+(\255) sh
+(10) sh
+% gr_show_at() END
+% gr_show_at() BEGIN
+0 g
+0 G
+50.6 222.2 m () sh
+(\255) sh
+(11) sh
+% gr_show_at() END
+0 g
+0 G
+1.0 i 0 J 0 j 0.369 w 10.0 M [] 0 d
+85.35 113.80 m
+85.35 113.80 l
+79.66 113.80 l
+85.35 113.80 l
+85.35 142.25 l
+82.50 142.25 l
+85.35 142.25 l
+85.35 170.70 l
+79.66 170.70 l
+85.35 170.70 l
+85.35 199.15 l
+82.50 199.15 l
+85.35 199.15 l
+85.35 227.60 l
+79.66 227.60 l
+85.35 227.60 l
+85.35 227.60 l
+S
+% END GriPath stroke/fill
+% gr_show_at() BEGIN
+0 g
+0 G
+43.3 128.4 m 90.00 rotate (Longitude W) sh
+-90.00 rotate % gr_show_at() END
+/Helvetica-ISOLatin1 findfont 0.00 sc sf
+0 g
+0 G
+1.0 i 0 J 0 j 0.369 w 10.0 M [] 0 d
+392.61 113.80 m
+392.61 113.80 l
+398.30 113.80 l
+392.61 113.80 l
+392.61 142.25 l
+395.45 142.25 l
+392.61 142.25 l
+392.61 170.70 l
+398.30 170.70 l
+392.61 170.70 l
+392.61 199.15 l
+395.45 199.15 l
+392.61 199.15 l
+392.61 227.60 l
+398.30 227.60 l
+392.61 227.60 l
+392.61 227.60 l
+S
+% END GriPath stroke/fill
+/Helvetica-ISOLatin1 findfont 15.00 sc sf
+%gri:
+%gri:show "++++++++++++++++++++++ drawn axes ++++++++++++++++++++++"
+%gri:
+%gri:// Loop around no of graphs
+%gri:// Set loop parameter
+%gri:.loop. = 1
+%gri:.nloops. = {rpn .noofgrphs. 1 +}
+%gri:while {rpn .loop. .nloops. >}
+%gri:
+%gri:show "Entered loop" .loop. " of " .noofgrphs.
+%gri:
+%gri:// Read line and symbol parameters
+%gri:read .lwidth. \lcolor .ndash.
+%gri:read .symb. .ssize. \scolor .decint.
+%gri:
+%gri:if ..debug..
+%gri:show "Line and symbol parameters \lcolor \scolor"
+%gri:end if
+%gri:
+%gri:// Open data file
+%gri:read \data
+%gri:read \xcol
+%gri:read \ycol
+%gri:
+%gri:open "\data"
+%gri:show "reading ctd data \data"
+%gri:
+%gri:// FOr Sea-Bird data files
+%gri:
+%gri://\header = "1"
+%gri://while \header
+%gri://  read \testnum
+%gri://  if { "\testnum" == "*END*"}
+%gri://   break
+%gri://  end if
+%gri://end while
+%gri://show "ctd data read "
+%gri:
+%gri:// For NeilBrown data files
+%gri:// watch this space!
+%gri:
+%gri:read columns x=\xcol y=\ycol   
+%gri:close
+%gri:
+%gri:set clip postscript on 
+%gri:
+%gri://draw curve - none drawn if \lcolor is white or .lwidth. =0
+%gri:set line width .lwidth.
+%gri:set color \lcolor
+%gri:set dash .ndash.
+%gri:if {rpn 0 .lwidth. >}
+%gri:  draw curve
+%gri:end if
+%gri:set line width default
+%gri:set dash off
+%gri:set color black
+%gri:
+%gri://draw symbols - none drawn if .ssize. = 0
+%gri:set symbol size .ssize.
+%gri:set color \scolor
+%gri:.kount. = 0
+%gri:.kdec. = 0
+%gri:.nx. = {rpn ..num_col_data.. 1 -}
+%gri:while {rpn .kount. .nx. >}
+%gri:if {rpn .kdec. .decint. ==}
+%gri:.kdec. = 0
+%gri:draw symbol .symb. at {rpn x .kount. @} {rpn y .kount. @}
+%gri:end if
+%gri:.kount. += 1
+%gri:.kdec. += 1
+%gri:end while
+%gri:set color black
+%gri:
+%gri:set clip postscript off
+%gri:
+%gri:// clean out re-read synonyms
+%gri:delete \lcolor \scolor 
+%gri:
+%gri:.loop. += 1
+%gri: 
+%gri:end while
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+q n % turn clipping on
+85.350000 113.800000 moveto
+392.610000 113.800000 lineto
+392.610000 227.600000 lineto
+85.350000 227.600000 lineto
+h W
+n % turn clipping on
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+1.000 w
+0 g
+0 G
+1.0 i 0 J 1 j 1.000 w 10.0 M [] 0 d
+95.43 113.76 m
+95.52 113.76 l
+95.62 114.20 l
+95.72 114.74 l
+95.81 115.42 l
+95.91 116.17 l
+96.01 117.05 l
+96.11 117.95 l
+96.20 118.81 l
+96.30 119.72 l
+96.40 120.66 l
+96.49 121.56 l
+96.59 122.46 l
+96.69 123.36 l
+96.78 124.27 l
+96.88 125.16 l
+96.98 126.07 l
+97.08 126.93 l
+97.17 127.77 l
+97.27 128.62 l
+97.37 129.46 l
+97.46 130.36 l
+97.56 131.20 l
+97.66 132.06 l
+97.75 132.93 l
+97.85 133.83 l
+97.95 134.65 l
+98.04 135.50 l
+98.14 136.34 l
+98.24 137.25 l
+98.34 138.11 l
+98.43 138.89 l
+98.53 139.68 l
+98.63 140.59 l
+98.72 141.50 l
+98.82 142.03 l
+98.92 141.19 l
+99.02 140.32 l
+99.11 139.46 l
+99.21 138.80 l
+99.31 139.11 l
+99.40 139.58 l
+99.50 140.09 l
+99.60 140.47 l
+99.69 141.00 l
+99.79 141.14 l
+99.89 141.06 l
+99.98 140.98 l
+100.08 140.92 l
+100.18 140.86 l
+100.28 140.82 l
+100.37 140.79 l
+100.47 140.84 l
+100.57 141.61 l
+100.66 142.35 l
+100.76 143.08 l
+100.86 143.84 l
+100.95 144.57 l
+101.05 145.32 l
+101.15 146.16 l
+101.25 147.00 l
+101.34 147.45 l
+101.44 147.31 l
+101.54 147.17 l
+101.63 147.06 l
+101.73 147.00 l
+101.83 146.91 l
+101.92 146.81 l
+102.02 146.70 l
+102.12 146.63 l
+102.22 146.55 l
+102.31 146.49 l
+102.41 146.43 l
+102.51 146.34 l
+102.60 146.27 l
+102.70 146.19 l
+102.80 146.16 l
+102.89 146.11 l
+102.99 146.09 l
+103.09 146.08 l
+103.19 146.04 l
+103.28 145.96 l
+103.38 145.93 l
+103.48 145.86 l
+103.57 146.43 l
+103.67 147.10 l
+103.77 147.35 l
+104.16 147.01 l
+104.25 146.97 l
+104.35 146.91 l
+104.45 146.88 l
+104.54 146.46 l
+104.64 146.42 l
+104.74 146.76 l
+104.83 146.80 l
+104.93 146.35 l
+105.03 146.24 l
+105.13 146.13 l
+105.22 146.05 l
+105.32 145.97 l
+105.42 145.90 l
+105.51 145.85 l
+105.61 145.84 l
+105.71 145.82 l
+105.80 145.83 l
+105.90 145.82 l
+106.00 145.83 l
+106.10 145.87 l
+106.19 145.89 l
+106.29 145.93 l
+106.39 145.94 l
+106.48 145.97 l
+106.58 146.04 l
+106.68 146.09 l
+106.77 146.16 l
+106.87 146.22 l
+106.97 146.26 l
+107.06 146.31 l
+107.16 146.39 l
+107.26 146.42 l
+107.36 146.43 l
+107.45 146.41 l
+107.55 146.44 l
+107.65 146.41 l
+107.74 146.36 l
+107.84 146.33 l
+107.94 146.30 l
+108.03 146.26 l
+108.13 146.27 l
+108.23 146.37 l
+108.33 146.10 l
+108.42 145.80 l
+108.52 145.45 l
+108.62 145.08 l
+108.71 144.70 l
+108.81 144.34 l
+108.91 144.09 l
+109.00 143.83 l
+109.10 143.60 l
+109.20 143.36 l
+109.30 143.14 l
+109.39 142.95 l
+109.49 142.76 l
+109.59 142.58 l
+109.68 142.40 l
+109.78 142.22 l
+109.88 142.04 l
+109.97 141.67 l
+110.07 140.82 l
+110.17 139.84 l
+110.27 138.86 l
+110.36 137.92 l
+110.46 136.96 l
+110.56 135.98 l
+110.65 134.97 l
+110.75 134.12 l
+110.85 133.29 l
+110.94 132.42 l
+111.04 131.90 l
+111.14 131.27 l
+111.24 131.08 l
+111.33 131.08 l
+111.43 131.06 l
+111.53 131.05 l
+111.62 131.03 l
+111.72 131.02 l
+111.82 131.00 l
+111.91 130.97 l
+112.01 130.95 l
+112.11 130.95 l
+112.21 130.94 l
+112.30 130.97 l
+112.40 130.89 l
+112.50 130.84 l
+112.59 130.86 l
+112.69 130.87 l
+112.79 130.95 l
+112.88 130.99 l
+112.98 131.01 l
+113.08 131.06 l
+113.17 131.09 l
+113.27 131.06 l
+113.37 131.07 l
+113.47 131.06 l
+113.56 131.04 l
+113.66 131.32 l
+113.76 132.15 l
+113.85 133.17 l
+113.95 134.08 l
+114.05 134.97 l
+114.15 135.96 l
+114.24 136.67 l
+114.34 136.60 l
+114.44 136.54 l
+114.53 136.47 l
+114.63 136.43 l
+114.73 136.37 l
+114.82 136.31 l
+114.92 136.29 l
+115.02 136.24 l
+115.12 136.21 l
+115.21 136.17 l
+115.31 136.10 l
+115.41 136.06 l
+115.50 136.02 l
+115.60 136.01 l
+115.70 135.95 l
+115.79 136.06 l
+115.89 136.16 l
+115.99 136.31 l
+116.08 136.40 l
+116.18 136.53 l
+116.28 136.58 l
+116.38 136.61 l
+116.47 136.61 l
+116.57 136.55 l
+116.67 136.47 l
+116.76 136.39 l
+116.86 136.32 l
+116.96 136.22 l
+117.05 136.17 l
+117.15 136.14 l
+117.25 136.08 l
+117.35 136.07 l
+117.44 136.21 l
+117.54 136.53 l
+117.64 136.61 l
+117.73 136.56 l
+117.83 136.52 l
+117.93 136.51 l
+118.02 136.54 l
+118.12 136.54 l
+118.22 136.54 l
+118.32 136.49 l
+118.41 136.47 l
+118.51 136.49 l
+118.61 136.55 l
+118.70 136.57 l
+118.80 136.58 l
+118.90 136.49 l
+118.99 136.49 l
+119.09 136.48 l
+119.19 136.50 l
+119.29 136.54 l
+119.38 136.54 l
+119.48 136.51 l
+119.58 136.51 l
+119.67 136.55 l
+119.77 136.58 l
+119.87 136.64 l
+119.96 136.68 l
+120.06 136.63 l
+120.16 136.66 l
+120.26 136.61 l
+120.35 136.54 l
+120.45 136.57 l
+120.55 136.57 l
+120.64 136.55 l
+120.74 136.49 l
+120.84 136.44 l
+120.93 136.40 l
+121.03 136.40 l
+121.13 136.51 l
+121.23 136.60 l
+121.32 136.56 l
+121.42 136.52 l
+121.52 136.47 l
+121.61 136.46 l
+121.71 136.42 l
+121.81 136.45 l
+121.90 136.48 l
+122.00 136.48 l
+122.10 136.51 l
+122.20 136.55 l
+122.29 136.59 l
+122.39 136.57 l
+122.49 136.59 l
+122.58 136.62 l
+122.68 136.60 l
+122.78 136.63 l
+122.87 136.62 l
+122.97 136.61 l
+123.07 136.58 l
+123.17 136.57 l
+123.26 136.61 l
+123.36 136.67 l
+123.46 136.72 l
+123.55 136.75 l
+123.65 136.74 l
+123.75 136.83 l
+123.84 137.43 l
+123.94 138.35 l
+124.04 139.41 l
+124.14 140.40 l
+124.23 141.48 l
+124.33 142.58 l
+124.43 143.69 l
+124.52 144.71 l
+124.62 145.78 l
+124.72 146.80 l
+124.81 147.79 l
+124.91 148.72 l
+125.01 149.38 l
+125.11 149.40 l
+125.20 149.47 l
+125.30 149.43 l
+125.40 149.46 l
+125.49 149.46 l
+125.59 149.47 l
+125.69 149.53 l
+125.78 149.56 l
+125.88 149.56 l
+125.98 149.58 l
+126.07 149.57 l
+126.17 149.55 l
+126.27 149.56 l
+126.37 149.61 l
+126.46 149.60 l
+126.56 149.65 l
+126.66 149.76 l
+126.75 149.85 l
+126.85 149.92 l
+126.95 149.96 l
+127.04 150.00 l
+127.14 150.12 l
+127.24 150.28 l
+127.34 150.31 l
+127.43 150.35 l
+127.53 150.39 l
+127.63 150.44 l
+127.72 150.49 l
+127.82 150.53 l
+127.92 150.56 l
+128.01 150.64 l
+128.11 150.68 l
+128.21 150.70 l
+128.31 150.74 l
+128.40 150.79 l
+128.50 150.88 l
+128.60 150.94 l
+128.69 151.07 l
+128.79 151.19 l
+128.89 151.33 l
+128.98 151.21 l
+129.08 150.84 l
+129.18 150.44 l
+129.28 150.09 l
+129.37 149.72 l
+129.47 149.35 l
+129.57 148.98 l
+129.66 148.59 l
+129.76 148.23 l
+129.86 147.88 l
+129.95 147.53 l
+130.05 147.15 l
+130.15 146.82 l
+130.25 146.43 l
+130.34 146.08 l
+130.44 145.77 l
+130.54 145.39 l
+130.63 145.02 l
+130.73 144.86 l
+130.83 144.89 l
+130.92 144.92 l
+131.02 144.97 l
+131.12 144.99 l
+131.22 144.99 l
+131.31 144.07 l
+131.41 142.99 l
+131.51 141.86 l
+131.60 140.75 l
+131.70 139.59 l
+131.80 138.45 l
+131.89 137.30 l
+131.99 136.56 l
+132.09 136.51 l
+132.19 136.49 l
+132.28 136.47 l
+132.38 136.44 l
+132.48 136.40 l
+132.57 136.35 l
+132.67 136.37 l
+132.77 136.37 l
+132.86 136.37 l
+132.96 136.37 l
+133.06 136.37 l
+133.16 136.84 l
+133.25 137.91 l
+133.35 139.04 l
+133.45 140.13 l
+133.54 141.18 l
+133.64 142.23 l
+133.74 143.13 l
+133.83 143.27 l
+133.93 143.21 l
+134.03 143.19 l
+134.12 143.18 l
+134.22 143.21 l
+134.32 143.18 l
+134.42 143.17 l
+134.51 143.16 l
+134.61 143.16 l
+134.71 143.08 l
+134.80 143.04 l
+134.90 143.83 l
+135.00 144.95 l
+135.09 146.00 l
+135.19 147.12 l
+135.29 148.29 l
+135.39 149.33 l
+135.48 150.19 l
+135.58 150.67 l
+135.68 150.75 l
+135.77 150.73 l
+135.87 150.74 l
+135.97 150.71 l
+136.06 150.68 l
+136.16 150.68 l
+136.26 150.72 l
+136.36 150.76 l
+136.45 150.76 l
+136.55 150.78 l
+136.65 150.76 l
+136.74 150.73 l
+136.84 150.63 l
+136.94 150.64 l
+137.03 150.61 l
+137.13 150.68 l
+137.23 150.73 l
+137.33 151.29 l
+137.42 152.11 l
+137.52 152.73 l
+137.62 153.23 l
+137.71 153.71 l
+137.81 154.18 l
+137.91 154.56 l
+138.00 154.55 l
+138.10 154.54 l
+138.20 154.62 l
+138.30 154.66 l
+138.39 154.62 l
+138.49 154.64 l
+138.59 154.66 l
+138.68 154.70 l
+138.78 154.71 l
+138.88 154.66 l
+138.97 154.67 l
+139.07 154.62 l
+139.17 154.57 l
+139.27 154.54 l
+139.36 154.60 l
+139.46 154.55 l
+139.56 154.55 l
+139.65 154.57 l
+139.75 154.55 l
+139.85 154.56 l
+139.94 154.55 l
+140.04 154.56 l
+140.14 154.55 l
+140.24 154.50 l
+140.33 154.50 l
+140.43 154.49 l
+140.53 154.47 l
+140.62 154.50 l
+140.72 154.49 l
+140.82 154.62 l
+140.91 155.49 l
+141.01 156.39 l
+141.11 157.16 l
+141.20 158.12 l
+141.30 159.05 l
+141.40 159.96 l
+141.50 160.86 l
+141.59 161.05 l
+141.69 161.08 l
+141.79 161.07 l
+141.88 161.12 l
+141.98 161.16 l
+142.08 161.16 l
+142.17 161.15 l
+142.27 161.17 l
+142.37 161.15 l
+142.47 161.14 l
+142.56 161.15 l
+142.66 161.13 l
+142.76 161.07 l
+142.85 161.05 l
+142.95 161.02 l
+143.05 161.05 l
+143.14 161.05 l
+143.24 161.01 l
+143.34 161.10 l
+143.44 161.10 l
+143.53 161.07 l
+143.63 161.08 l
+143.73 161.06 l
+143.82 161.09 l
+143.92 161.11 l
+144.02 161.20 l
+144.11 161.23 l
+144.21 161.28 l
+144.31 161.26 l
+144.41 161.32 l
+144.50 161.33 l
+144.60 161.33 l
+144.70 161.33 l
+144.79 161.37 l
+144.89 161.40 l
+144.99 161.41 l
+145.08 161.40 l
+145.18 161.41 l
+145.28 161.38 l
+145.38 161.39 l
+145.47 162.06 l
+145.57 162.84 l
+145.67 163.65 l
+145.76 164.57 l
+145.86 165.71 l
+145.96 166.79 l
+146.05 167.90 l
+146.15 169.03 l
+146.25 170.10 l
+146.35 170.89 l
+146.44 171.27 l
+146.54 171.58 l
+146.64 171.58 l
+146.73 171.61 l
+146.83 171.57 l
+146.93 171.55 l
+147.02 171.56 l
+147.12 171.65 l
+147.22 171.65 l
+147.32 171.70 l
+147.41 171.64 l
+147.51 171.57 l
+147.61 171.50 l
+147.70 171.47 l
+147.80 171.46 l
+147.90 171.48 l
+147.99 171.48 l
+148.09 171.54 l
+148.19 171.56 l
+148.29 171.59 l
+148.38 171.64 l
+148.48 171.62 l
+148.58 171.61 l
+148.67 171.61 l
+148.77 171.62 l
+148.87 171.61 l
+148.96 171.49 l
+149.06 171.36 l
+149.16 171.28 l
+149.26 171.76 l
+149.35 172.87 l
+149.45 173.96 l
+149.55 175.16 l
+149.64 176.33 l
+149.74 177.41 l
+149.84 178.57 l
+149.93 179.77 l
+150.03 180.93 l
+150.13 182.08 l
+150.22 183.21 l
+150.32 184.49 l
+150.42 185.57 l
+150.52 186.77 l
+150.61 187.53 l
+150.71 187.69 l
+150.81 187.70 l
+150.90 187.74 l
+151.00 187.74 l
+151.10 187.69 l
+151.19 187.74 l
+151.29 187.74 l
+151.39 187.76 l
+151.49 187.80 l
+151.58 187.84 l
+151.68 187.83 l
+151.78 187.77 l
+151.87 187.72 l
+151.97 187.64 l
+152.07 187.64 l
+152.16 187.64 l
+152.26 187.63 l
+152.36 187.68 l
+152.46 187.69 l
+152.55 187.72 l
+152.65 187.70 l
+152.75 187.72 l
+152.84 187.72 l
+152.94 187.74 l
+153.04 187.76 l
+153.13 187.75 l
+153.23 187.71 l
+153.33 187.68 l
+153.43 187.70 l
+153.52 187.76 l
+153.62 187.76 l
+153.72 187.75 l
+153.81 187.72 l
+153.91 187.63 l
+154.01 187.57 l
+154.10 187.55 l
+154.20 187.57 l
+154.30 187.53 l
+154.40 187.53 l
+154.49 187.52 l
+154.59 187.43 l
+154.69 187.35 l
+154.78 187.32 l
+154.88 187.22 l
+154.98 187.15 l
+155.07 187.08 l
+155.17 186.95 l
+155.27 186.86 l
+155.37 186.74 l
+155.46 186.66 l
+155.56 186.59 l
+155.66 186.58 l
+155.75 186.61 l
+155.85 186.66 l
+155.95 186.74 l
+156.04 186.78 l
+156.14 186.82 l
+156.24 186.91 l
+156.34 186.92 l
+156.43 186.90 l
+156.53 186.90 l
+156.63 186.90 l
+156.72 186.90 l
+156.82 186.91 l
+156.92 186.92 l
+157.01 186.90 l
+157.11 186.92 l
+157.21 186.95 l
+157.31 186.86 l
+157.40 186.73 l
+157.50 186.66 l
+157.60 186.56 l
+157.69 186.48 l
+157.79 186.40 l
+157.89 186.34 l
+157.98 186.56 l
+158.08 186.92 l
+158.18 187.19 l
+158.27 187.24 l
+158.37 186.09 l
+158.47 184.81 l
+158.57 183.56 l
+158.66 182.32 l
+158.76 181.04 l
+158.86 179.78 l
+158.95 178.52 l
+159.05 177.29 l
+159.15 176.03 l
+159.24 174.81 l
+159.34 173.58 l
+159.44 172.59 l
+159.54 171.75 l
+159.63 171.12 l
+159.73 170.70 l
+159.83 170.64 l
+159.92 170.61 l
+160.02 170.67 l
+160.12 170.67 l
+160.22 170.64 l
+160.31 170.63 l
+160.41 170.69 l
+160.51 170.71 l
+160.60 170.63 l
+160.70 170.64 l
+160.80 170.64 l
+160.89 170.69 l
+160.99 170.72 l
+161.09 170.69 l
+161.18 170.63 l
+161.28 170.59 l
+161.38 170.59 l
+161.48 170.60 l
+161.57 170.64 l
+161.67 170.64 l
+161.77 170.61 l
+161.86 170.58 l
+161.96 170.61 l
+162.06 170.58 l
+162.15 170.62 l
+162.25 170.13 l
+162.35 168.90 l
+162.45 167.67 l
+162.54 166.46 l
+162.64 165.74 l
+162.74 165.08 l
+162.83 164.43 l
+162.93 163.80 l
+163.03 163.11 l
+163.12 162.10 l
+163.22 161.15 l
+163.32 160.04 l
+163.42 158.93 l
+163.51 157.84 l
+163.61 157.32 l
+163.71 157.31 l
+163.80 157.30 l
+163.90 157.32 l
+164.00 157.37 l
+164.09 157.33 l
+164.19 157.32 l
+164.29 157.34 l
+164.39 157.39 l
+164.48 157.44 l
+164.58 157.40 l
+164.68 157.44 l
+164.77 157.38 l
+164.87 157.37 l
+164.97 157.38 l
+165.06 157.32 l
+165.16 157.29 l
+165.26 157.28 l
+165.36 157.23 l
+165.45 157.22 l
+165.55 157.22 l
+165.65 156.95 l
+165.74 156.08 l
+165.84 155.09 l
+165.94 154.12 l
+166.03 153.13 l
+166.13 152.17 l
+166.23 151.17 l
+166.33 150.35 l
+166.42 149.97 l
+166.52 149.59 l
+166.62 149.58 l
+166.71 149.60 l
+166.81 149.61 l
+166.91 149.65 l
+167.00 149.63 l
+167.10 149.58 l
+167.20 149.56 l
+167.29 149.54 l
+167.39 149.51 l
+167.49 149.49 l
+167.59 149.51 l
+167.68 149.49 l
+167.78 149.46 l
+167.88 149.21 l
+167.97 148.61 l
+168.07 147.90 l
+168.17 147.14 l
+168.27 146.39 l
+168.36 145.62 l
+168.46 144.86 l
+168.56 144.05 l
+168.65 143.27 l
+168.75 142.52 l
+168.85 142.15 l
+168.94 142.08 l
+169.04 142.03 l
+169.14 142.00 l
+169.23 141.95 l
+169.33 141.94 l
+169.43 141.91 l
+169.53 141.88 l
+169.62 141.86 l
+169.72 141.83 l
+169.82 141.81 l
+169.91 141.82 l
+170.01 141.80 l
+170.11 141.76 l
+170.20 141.70 l
+170.30 141.70 l
+170.40 141.59 l
+170.50 140.65 l
+170.59 139.64 l
+170.69 138.63 l
+170.79 137.58 l
+170.88 136.62 l
+170.98 136.46 l
+171.08 136.41 l
+171.17 136.32 l
+171.27 136.29 l
+171.37 136.26 l
+171.47 136.25 l
+171.56 136.17 l
+171.66 136.16 l
+171.76 136.11 l
+171.85 136.07 l
+171.95 136.02 l
+172.05 135.96 l
+172.14 135.90 l
+172.24 135.87 l
+172.34 135.79 l
+172.44 135.73 l
+172.53 135.67 l
+172.63 135.61 l
+172.73 135.57 l
+172.82 135.59 l
+172.92 135.66 l
+173.02 136.35 l
+173.11 136.58 l
+173.21 136.53 l
+173.31 136.53 l
+173.41 136.52 l
+173.50 136.53 l
+173.60 136.48 l
+173.70 136.43 l
+173.79 136.38 l
+173.89 135.84 l
+173.99 135.11 l
+174.08 134.39 l
+174.18 133.55 l
+174.28 132.90 l
+174.37 132.20 l
+174.47 131.47 l
+174.57 130.75 l
+174.67 130.04 l
+174.76 129.35 l
+174.86 128.65 l
+174.96 127.94 l
+175.05 127.18 l
+175.15 126.30 l
+175.25 125.73 l
+175.35 125.74 l
+175.44 125.72 l
+175.54 125.77 l
+175.64 125.68 l
+175.73 125.67 l
+175.83 125.74 l
+175.93 125.75 l
+176.02 125.06 l
+176.12 124.09 l
+176.22 123.06 l
+176.32 122.10 l
+176.41 121.49 l
+176.51 121.98 l
+176.61 123.07 l
+176.70 124.26 l
+176.80 125.37 l
+176.90 126.45 l
+176.99 127.54 l
+177.09 128.63 l
+177.19 129.75 l
+177.28 130.82 l
+177.38 131.96 l
+177.48 133.01 l
+177.58 134.05 l
+177.67 134.57 l
+177.77 134.63 l
+177.87 134.60 l
+177.96 134.61 l
+178.06 134.65 l
+178.16 134.70 l
+178.25 134.72 l
+178.35 135.10 l
+178.45 136.12 l
+178.55 137.22 l
+178.64 138.41 l
+178.74 139.52 l
+178.84 140.65 l
+178.93 141.70 l
+179.03 142.23 l
+179.13 142.25 l
+179.22 142.23 l
+179.32 142.26 l
+179.42 142.22 l
+179.52 142.20 l
+179.61 142.21 l
+179.71 142.24 l
+179.81 142.23 l
+179.90 142.22 l
+180.00 142.80 l
+180.10 143.80 l
+180.19 144.91 l
+180.29 145.93 l
+180.39 146.99 l
+180.49 147.87 l
+180.58 148.19 l
+180.68 148.22 l
+180.78 148.22 l
+180.87 148.37 l
+180.97 148.28 l
+181.07 148.22 l
+181.16 148.25 l
+181.26 148.31 l
+181.36 148.32 l
+181.46 148.30 l
+181.55 148.30 l
+181.65 148.27 l
+181.75 148.28 l
+181.84 148.26 l
+181.94 148.24 l
+182.04 148.22 l
+182.13 148.28 l
+182.23 148.32 l
+182.33 148.34 l
+182.43 148.43 l
+182.52 148.44 l
+182.62 148.44 l
+182.72 148.50 l
+182.81 148.49 l
+182.91 148.51 l
+183.01 148.58 l
+183.10 148.65 l
+183.20 148.68 l
+183.30 148.73 l
+183.39 148.75 l
+183.49 148.81 l
+183.59 148.88 l
+183.69 148.97 l
+183.78 149.06 l
+183.88 149.22 l
+183.98 150.02 l
+184.07 151.00 l
+184.17 151.91 l
+184.27 151.83 l
+184.37 152.13 l
+184.46 152.64 l
+184.56 153.07 l
+184.66 153.54 l
+184.75 154.06 l
+184.85 154.65 l
+184.95 155.25 l
+185.04 155.92 l
+185.14 156.93 l
+185.24 158.06 l
+185.33 159.20 l
+185.43 160.33 l
+185.53 161.44 l
+185.63 161.95 l
+185.72 161.92 l
+185.82 161.92 l
+185.92 161.89 l
+186.01 161.97 l
+186.11 162.02 l
+186.21 162.01 l
+186.30 162.02 l
+186.40 162.03 l
+186.50 161.99 l
+186.60 162.04 l
+186.69 162.07 l
+186.79 162.09 l
+186.89 162.11 l
+186.98 162.06 l
+187.08 162.02 l
+187.18 162.02 l
+187.27 162.02 l
+187.37 162.04 l
+187.55 162.04 l
+187.65 162.05 l
+187.74 162.01 l
+187.84 161.97 l
+187.94 161.94 l
+188.03 161.90 l
+188.13 161.90 l
+188.23 162.78 l
+188.33 164.00 l
+188.42 165.18 l
+188.52 166.37 l
+188.62 167.58 l
+188.71 168.76 l
+188.81 169.91 l
+188.91 170.59 l
+189.00 170.72 l
+189.10 170.68 l
+189.20 170.64 l
+189.30 170.68 l
+189.39 170.70 l
+189.49 170.71 l
+189.59 170.72 l
+189.68 170.75 l
+189.78 170.77 l
+189.88 170.75 l
+189.97 170.74 l
+190.07 170.73 l
+190.17 170.77 l
+190.34 170.81 l
+190.44 170.82 l
+190.54 170.80 l
+190.63 170.83 l
+190.73 170.85 l
+190.83 170.84 l
+190.92 170.87 l
+191.02 170.88 l
+191.12 170.94 l
+191.22 170.95 l
+191.31 171.04 l
+191.41 171.87 l
+191.51 173.13 l
+191.60 174.30 l
+191.70 175.48 l
+191.80 176.71 l
+191.89 177.94 l
+191.99 179.16 l
+192.09 180.43 l
+192.19 181.61 l
+192.28 182.80 l
+192.38 184.04 l
+192.48 185.26 l
+192.57 186.45 l
+192.67 187.35 l
+192.77 187.72 l
+192.86 187.74 l
+192.96 187.67 l
+193.06 187.69 l
+193.15 187.65 l
+193.25 187.65 l
+193.35 187.73 l
+193.45 187.75 l
+193.54 187.78 l
+193.64 187.78 l
+193.74 187.75 l
+193.83 187.74 l
+193.93 187.77 l
+194.03 187.73 l
+194.13 187.76 l
+194.22 187.79 l
+194.32 187.80 l
+194.42 187.79 l
+194.51 187.78 l
+194.61 187.77 l
+194.71 187.74 l
+194.80 187.77 l
+194.90 187.80 l
+195.00 187.88 l
+195.09 187.90 l
+195.19 187.89 l
+195.29 187.89 l
+195.39 187.78 l
+195.48 187.14 l
+195.58 186.28 l
+195.68 185.37 l
+195.77 184.39 l
+195.87 183.42 l
+195.97 182.47 l
+196.07 181.47 l
+196.16 180.54 l
+196.26 179.61 l
+196.36 178.94 l
+196.45 178.21 l
+196.55 177.52 l
+196.65 176.78 l
+196.74 176.05 l
+196.84 175.34 l
+196.94 174.63 l
+197.03 173.93 l
+197.13 173.24 l
+197.23 172.49 l
+197.33 171.81 l
+197.42 171.07 l
+197.52 170.83 l
+197.62 170.86 l
+197.71 170.87 l
+197.81 170.92 l
+197.91 170.97 l
+198.00 171.02 l
+198.10 171.09 l
+198.20 171.15 l
+198.30 171.21 l
+198.39 171.31 l
+198.49 171.33 l
+198.59 171.40 l
+198.68 171.45 l
+198.78 171.50 l
+198.88 171.53 l
+198.97 171.61 l
+199.07 171.68 l
+199.17 171.74 l
+199.27 171.76 l
+199.36 171.79 l
+199.46 171.85 l
+199.56 171.89 l
+199.65 171.90 l
+199.75 171.91 l
+199.85 171.94 l
+199.94 171.95 l
+200.04 172.02 l
+200.14 172.07 l
+200.24 172.12 l
+200.33 172.19 l
+200.43 172.20 l
+200.53 172.22 l
+200.62 172.25 l
+200.72 172.27 l
+200.82 172.32 l
+200.91 172.31 l
+201.01 171.37 l
+201.11 170.18 l
+201.21 169.00 l
+201.30 167.80 l
+201.40 166.60 l
+201.50 165.46 l
+201.59 164.30 l
+201.69 163.17 l
+201.79 162.27 l
+201.88 161.65 l
+201.98 161.31 l
+202.08 161.37 l
+202.18 161.37 l
+202.27 161.42 l
+202.37 161.41 l
+202.47 161.45 l
+202.56 161.44 l
+202.66 161.46 l
+202.76 161.42 l
+202.85 161.42 l
+202.95 161.41 l
+203.05 161.41 l
+203.15 161.44 l
+203.24 161.42 l
+203.34 161.43 l
+203.44 161.43 l
+203.53 161.43 l
+203.63 161.39 l
+203.73 161.38 l
+203.82 161.37 l
+203.92 161.35 l
+204.02 161.28 l
+204.12 161.61 l
+204.21 162.54 l
+204.31 163.74 l
+204.41 164.95 l
+204.50 166.17 l
+204.60 167.42 l
+204.70 168.68 l
+204.79 169.89 l
+204.89 171.12 l
+204.99 172.37 l
+205.08 173.59 l
+205.18 174.82 l
+205.28 176.00 l
+205.38 177.23 l
+205.47 178.47 l
+205.57 179.55 l
+205.67 180.08 l
+205.76 180.17 l
+205.86 180.23 l
+205.96 180.22 l
+206.05 180.41 l
+206.15 180.55 l
+206.25 180.73 l
+206.35 180.86 l
+206.44 180.99 l
+206.54 181.10 l
+206.64 181.27 l
+206.73 181.46 l
+206.83 181.59 l
+206.93 181.78 l
+207.02 181.94 l
+207.12 182.11 l
+207.22 182.29 l
+207.32 182.45 l
+207.41 182.62 l
+207.51 182.76 l
+207.61 182.91 l
+207.70 183.09 l
+207.80 183.22 l
+207.90 183.34 l
+207.99 183.47 l
+208.09 183.61 l
+208.19 183.70 l
+208.29 183.80 l
+208.38 183.92 l
+208.48 184.03 l
+208.58 184.13 l
+208.67 184.17 l
+208.77 184.24 l
+208.87 184.32 l
+208.96 184.39 l
+209.06 184.45 l
+209.16 184.52 l
+209.26 184.56 l
+209.35 184.59 l
+209.45 184.57 l
+209.55 184.32 l
+209.64 184.02 l
+209.74 183.66 l
+209.84 183.32 l
+209.93 182.97 l
+210.03 182.64 l
+210.13 182.30 l
+210.23 181.98 l
+210.32 181.67 l
+210.42 181.36 l
+210.52 181.07 l
+210.61 180.76 l
+210.71 180.46 l
+210.81 180.19 l
+210.90 179.91 l
+211.00 179.65 l
+211.10 179.33 l
+211.20 179.09 l
+211.29 179.08 l
+211.39 179.11 l
+211.49 179.11 l
+211.58 179.20 l
+211.68 179.22 l
+211.78 179.33 l
+211.87 179.43 l
+211.97 179.52 l
+212.07 179.75 l
+212.16 180.01 l
+212.26 180.28 l
+212.36 180.45 l
+212.46 180.44 l
+212.55 180.35 l
+212.65 180.27 l
+212.75 180.18 l
+212.84 180.07 l
+212.94 179.99 l
+213.04 179.89 l
+213.14 179.79 l
+213.23 179.69 l
+213.33 179.60 l
+213.43 179.52 l
+213.52 179.42 l
+213.62 179.30 l
+213.72 179.16 l
+213.81 179.01 l
+213.91 178.86 l
+214.01 178.64 l
+214.10 178.40 l
+214.20 178.31 l
+214.30 178.31 l
+214.40 178.32 l
+214.49 178.28 l
+214.59 178.11 l
+214.69 177.88 l
+214.78 177.61 l
+214.88 177.29 l
+214.98 177.01 l
+215.08 176.81 l
+215.17 176.64 l
+215.27 176.43 l
+215.37 176.26 l
+215.46 176.06 l
+215.56 175.76 l
+215.66 175.46 l
+215.75 175.17 l
+215.85 174.91 l
+215.95 174.63 l
+216.04 174.39 l
+216.14 174.09 l
+216.24 173.76 l
+216.34 173.40 l
+216.43 173.06 l
+216.53 172.73 l
+216.63 172.38 l
+216.72 172.02 l
+216.82 171.66 l
+216.92 171.31 l
+217.01 170.92 l
+217.11 170.56 l
+217.21 170.24 l
+217.31 169.87 l
+217.40 169.54 l
+217.50 169.19 l
+217.60 168.81 l
+217.69 168.47 l
+217.79 168.21 l
+217.89 168.50 l
+217.98 168.29 l
+218.08 167.84 l
+218.18 167.85 l
+218.28 167.82 l
+218.37 167.80 l
+218.47 167.82 l
+218.57 167.83 l
+218.66 167.81 l
+218.76 167.88 l
+218.86 167.87 l
+218.95 167.84 l
+219.05 167.84 l
+219.15 167.85 l
+219.25 167.85 l
+219.34 167.88 l
+219.44 167.84 l
+219.54 167.80 l
+219.63 167.80 l
+219.73 167.81 l
+219.83 167.83 l
+219.92 167.81 l
+220.02 167.78 l
+220.12 167.81 l
+220.22 167.82 l
+220.31 167.85 l
+220.41 167.81 l
+220.51 167.82 l
+220.60 167.84 l
+220.70 167.80 l
+220.80 167.85 l
+220.89 167.84 l
+220.99 167.77 l
+221.09 167.66 l
+221.18 167.24 l
+221.28 166.37 l
+221.38 165.32 l
+221.48 164.20 l
+221.57 163.07 l
+221.67 161.93 l
+221.77 160.77 l
+221.86 159.59 l
+221.96 158.66 l
+222.06 158.34 l
+222.15 158.30 l
+222.25 158.33 l
+222.35 158.36 l
+222.45 158.37 l
+222.54 158.36 l
+222.64 158.47 l
+222.74 158.53 l
+222.83 158.52 l
+222.93 158.59 l
+223.03 158.56 l
+223.12 158.63 l
+223.22 158.65 l
+223.32 158.63 l
+223.42 158.65 l
+223.51 158.62 l
+223.61 158.60 l
+223.71 158.62 l
+223.80 158.61 l
+223.90 158.64 l
+224.00 158.62 l
+224.09 158.64 l
+224.19 158.42 l
+224.29 157.51 l
+224.39 156.60 l
+224.48 155.63 l
+224.58 154.69 l
+224.68 154.31 l
+224.77 154.34 l
+224.87 154.41 l
+224.97 154.44 l
+225.06 154.53 l
+225.16 154.51 l
+225.26 154.30 l
+225.36 154.09 l
+225.45 153.83 l
+225.55 153.58 l
+225.65 153.39 l
+225.74 153.16 l
+225.84 152.92 l
+225.94 152.71 l
+226.03 152.45 l
+226.13 152.22 l
+226.23 151.96 l
+226.33 151.75 l
+226.42 151.60 l
+226.52 151.46 l
+226.62 151.38 l
+226.71 151.13 l
+226.81 150.85 l
+226.91 150.76 l
+227.00 150.81 l
+227.10 150.88 l
+227.20 150.92 l
+227.30 150.95 l
+227.39 150.99 l
+227.49 151.01 l
+227.59 151.10 l
+227.68 151.15 l
+227.78 151.23 l
+227.88 151.28 l
+227.97 151.35 l
+228.07 151.36 l
+228.17 151.45 l
+228.27 151.49 l
+228.36 151.55 l
+228.46 151.60 l
+228.56 151.69 l
+228.65 151.76 l
+228.75 151.79 l
+228.85 151.76 l
+228.94 151.76 l
+229.04 151.71 l
+229.14 151.74 l
+229.23 151.74 l
+229.33 151.72 l
+229.43 151.72 l
+229.53 151.70 l
+229.62 151.72 l
+229.72 151.69 l
+229.82 151.78 l
+229.91 151.00 l
+230.01 149.81 l
+230.11 148.59 l
+230.20 147.43 l
+230.30 146.22 l
+230.40 145.09 l
+230.50 144.01 l
+230.59 143.32 l
+230.69 143.25 l
+230.79 143.24 l
+230.88 143.28 l
+230.98 143.24 l
+231.08 143.24 l
+231.18 143.27 l
+231.27 143.21 l
+231.37 143.25 l
+231.47 143.22 l
+231.56 143.21 l
+231.66 143.17 l
+231.76 143.17 l
+231.85 143.18 l
+231.95 143.16 l
+232.05 143.15 l
+232.14 143.15 l
+232.24 143.10 l
+232.34 143.12 l
+232.44 143.10 l
+232.53 142.07 l
+232.63 140.88 l
+232.73 139.71 l
+232.82 138.59 l
+232.92 137.50 l
+233.02 136.72 l
+233.11 136.61 l
+233.21 136.57 l
+233.31 136.59 l
+233.41 136.61 l
+233.50 136.61 l
+233.60 136.53 l
+233.70 136.49 l
+233.79 136.48 l
+233.89 136.42 l
+233.99 136.42 l
+234.08 136.40 l
+234.18 136.36 l
+234.28 136.34 l
+234.38 136.30 l
+234.47 136.30 l
+234.57 136.28 l
+234.67 136.24 l
+234.76 136.25 l
+234.86 136.26 l
+234.96 136.26 l
+235.05 136.23 l
+235.15 136.17 l
+235.25 136.04 l
+235.35 135.09 l
+235.44 134.01 l
+235.54 132.88 l
+235.64 131.78 l
+235.73 130.69 l
+235.83 129.87 l
+235.93 129.83 l
+236.02 129.83 l
+236.12 129.78 l
+236.22 129.74 l
+236.32 129.72 l
+236.41 129.66 l
+236.51 129.59 l
+236.61 129.58 l
+236.70 129.51 l
+236.80 129.47 l
+236.90 129.45 l
+236.99 129.39 l
+237.09 129.34 l
+237.19 129.30 l
+237.29 129.28 l
+237.38 129.24 l
+237.48 129.20 l
+237.58 129.20 l
+237.67 129.02 l
+237.77 128.26 l
+237.87 127.30 l
+237.96 126.38 l
+238.06 125.55 l
+238.16 124.75 l
+238.26 124.42 l
+238.35 124.47 l
+238.45 124.48 l
+238.55 124.46 l
+238.64 124.45 l
+238.74 124.49 l
+238.84 124.52 l
+238.93 124.55 l
+239.03 124.57 l
+239.13 124.57 l
+239.23 124.63 l
+239.32 124.62 l
+239.42 124.68 l
+239.52 124.05 l
+239.61 123.07 l
+239.71 122.06 l
+239.81 121.04 l
+239.90 120.03 l
+240.00 119.38 l
+240.10 119.40 l
+240.19 119.40 l
+240.29 119.40 l
+240.39 119.36 l
+240.49 119.35 l
+240.58 119.33 l
+240.68 118.94 l
+240.78 117.94 l
+240.87 116.92 l
+240.97 115.90 l
+241.07 114.87 l
+241.16 113.87 l
+241.26 112.85 l
+241.36 111.86 l
+241.46 111.84 l
+241.55 111.83 l
+241.65 111.82 l
+241.75 111.82 l
+241.84 111.81 l
+241.94 111.76 l
+242.04 111.58 l
+242.13 110.92 l
+242.23 109.96 l
+242.33 109.07 l
+242.43 108.25 l
+242.52 107.43 l
+242.62 106.67 l
+242.72 106.52 l
+242.81 106.55 l
+242.91 106.62 l
+243.01 106.63 l
+243.10 106.59 l
+243.20 106.67 l
+243.30 107.38 l
+243.40 108.17 l
+243.49 109.01 l
+243.59 109.83 l
+243.69 110.66 l
+243.78 111.46 l
+243.88 112.28 l
+243.98 113.13 l
+244.07 114.06 l
+244.17 115.00 l
+244.27 115.95 l
+244.37 116.96 l
+244.46 117.88 l
+244.56 118.72 l
+244.66 119.71 l
+244.75 120.77 l
+244.85 121.74 l
+244.95 122.70 l
+245.04 123.65 l
+245.14 124.42 l
+245.24 124.80 l
+245.34 124.06 l
+245.43 123.18 l
+245.53 122.31 l
+245.63 121.48 l
+245.72 120.67 l
+245.82 120.01 l
+245.92 119.33 l
+246.01 118.70 l
+246.11 118.05 l
+246.21 117.39 l
+246.31 116.81 l
+246.40 116.22 l
+246.50 115.53 l
+246.60 114.87 l
+246.69 114.66 l
+246.79 114.65 l
+246.89 114.61 l
+246.98 114.54 l
+247.08 114.59 l
+247.18 115.44 l
+247.28 116.54 l
+247.37 117.62 l
+247.47 118.73 l
+247.57 119.82 l
+247.66 120.88 l
+247.76 121.85 l
+247.86 122.34 l
+247.95 122.38 l
+248.05 122.32 l
+248.15 122.34 l
+248.24 122.32 l
+248.34 122.32 l
+248.44 122.32 l
+248.54 122.29 l
+248.63 122.58 l
+248.73 123.39 l
+248.83 124.47 l
+248.92 125.58 l
+249.02 126.72 l
+249.12 127.85 l
+249.21 128.94 l
+249.31 129.87 l
+249.41 130.96 l
+249.51 132.13 l
+249.60 133.26 l
+249.70 134.44 l
+249.80 135.60 l
+249.89 136.75 l
+249.99 137.70 l
+250.09 138.19 l
+250.18 138.47 l
+250.28 138.45 l
+250.38 138.48 l
+250.48 138.50 l
+250.57 138.53 l
+250.67 138.52 l
+250.77 138.47 l
+250.86 138.46 l
+250.96 138.49 l
+251.06 138.46 l
+251.15 138.46 l
+251.25 138.47 l
+251.35 138.61 l
+251.45 139.18 l
+251.54 139.92 l
+251.64 140.83 l
+251.74 141.53 l
+251.83 142.21 l
+251.93 142.91 l
+252.03 143.51 l
+252.12 144.01 l
+252.22 144.51 l
+252.32 144.98 l
+252.42 145.05 l
+252.51 145.20 l
+252.61 145.23 l
+252.71 145.26 l
+252.80 145.24 l
+252.90 145.28 l
+253.00 145.29 l
+253.09 145.28 l
+253.19 145.28 l
+253.29 145.28 l
+253.39 145.32 l
+253.48 145.35 l
+253.58 145.37 l
+253.68 145.36 l
+253.77 145.40 l
+253.87 145.42 l
+253.97 145.44 l
+254.06 145.44 l
+254.16 145.45 l
+254.26 145.45 l
+254.36 145.40 l
+254.45 144.44 l
+254.55 143.23 l
+254.65 142.00 l
+254.74 140.75 l
+254.84 139.49 l
+254.94 138.29 l
+255.03 137.05 l
+255.13 135.84 l
+255.23 134.57 l
+255.32 133.35 l
+255.42 132.13 l
+255.52 130.91 l
+255.62 129.98 l
+255.71 130.06 l
+255.81 130.12 l
+255.91 130.18 l
+256.00 130.22 l
+256.10 130.20 l
+256.20 130.25 l
+256.30 130.30 l
+256.39 130.32 l
+256.49 130.38 l
+256.59 130.39 l
+256.68 130.47 l
+256.78 130.52 l
+256.88 130.65 l
+256.97 131.42 l
+257.07 132.49 l
+257.17 133.71 l
+257.26 134.94 l
+257.36 136.19 l
+257.46 137.39 l
+257.56 138.63 l
+257.65 139.86 l
+257.75 141.04 l
+257.85 142.30 l
+257.94 143.50 l
+258.04 144.70 l
+258.14 145.87 l
+258.23 147.08 l
+258.33 148.22 l
+258.43 149.39 l
+258.53 150.59 l
+258.62 151.70 l
+258.72 152.90 l
+258.82 154.03 l
+258.91 155.17 l
+259.01 156.31 l
+259.11 157.46 l
+259.20 158.52 l
+259.30 159.08 l
+259.40 159.31 l
+259.50 159.35 l
+259.59 159.34 l
+259.69 159.31 l
+259.79 159.27 l
+259.88 159.24 l
+259.98 159.24 l
+260.08 159.23 l
+260.17 159.22 l
+260.27 159.23 l
+260.37 159.23 l
+260.47 159.22 l
+260.56 159.18 l
+260.66 159.13 l
+260.76 159.15 l
+260.85 159.14 l
+260.95 159.07 l
+261.05 159.04 l
+261.14 159.03 l
+261.24 159.01 l
+261.34 159.03 l
+261.44 159.03 l
+261.53 159.00 l
+261.63 159.25 l
+261.73 159.82 l
+261.82 160.47 l
+261.92 161.17 l
+262.02 161.90 l
+262.11 162.64 l
+262.21 163.43 l
+262.31 164.18 l
+262.41 164.93 l
+262.50 165.66 l
+262.60 166.65 l
+262.70 167.79 l
+262.79 168.87 l
+262.89 170.01 l
+262.99 171.20 l
+263.08 172.35 l
+263.18 173.50 l
+263.28 174.30 l
+263.38 174.57 l
+263.47 174.58 l
+263.57 174.59 l
+263.67 174.61 l
+263.76 174.66 l
+263.86 174.65 l
+263.96 174.64 l
+264.05 174.64 l
+264.15 174.60 l
+264.25 174.63 l
+264.35 174.62 l
+264.44 174.64 l
+264.54 174.60 l
+264.64 174.60 l
+264.73 174.56 l
+264.83 174.60 l
+264.93 174.59 l
+265.02 174.58 l
+265.12 174.58 l
+265.22 174.58 l
+265.31 174.59 l
+265.41 174.56 l
+265.51 174.56 l
+265.61 174.57 l
+265.70 174.56 l
+265.80 174.57 l
+265.90 174.60 l
+265.99 174.63 l
+266.09 174.65 l
+266.19 174.72 l
+266.28 174.46 l
+266.38 174.11 l
+266.48 173.73 l
+266.58 173.38 l
+266.67 173.07 l
+266.77 172.76 l
+266.87 172.44 l
+266.96 172.12 l
+267.06 171.79 l
+267.16 171.49 l
+267.25 171.21 l
+267.35 170.90 l
+267.45 170.69 l
+267.55 170.91 l
+267.64 170.95 l
+267.74 170.93 l
+267.84 170.97 l
+267.93 170.97 l
+268.03 170.98 l
+268.13 171.07 l
+268.22 171.12 l
+268.32 171.13 l
+268.42 171.15 l
+268.52 171.17 l
+268.61 171.19 l
+268.71 171.19 l
+268.81 171.26 l
+268.90 171.32 l
+269.00 171.34 l
+269.10 171.39 l
+269.19 171.43 l
+269.29 171.49 l
+269.39 171.49 l
+269.49 171.52 l
+269.58 171.57 l
+269.68 171.58 l
+269.78 171.56 l
+269.87 171.59 l
+269.97 171.64 l
+270.07 171.65 l
+270.16 171.68 l
+270.26 171.70 l
+270.36 171.73 l
+270.46 171.77 l
+270.55 171.78 l
+270.65 171.81 l
+270.75 171.84 l
+270.84 171.88 l
+270.94 171.94 l
+271.04 172.00 l
+271.13 172.07 l
+271.23 172.13 l
+271.33 172.13 l
+271.43 172.08 l
+271.52 171.24 l
+271.62 170.04 l
+271.72 168.82 l
+271.81 167.60 l
+271.91 166.40 l
+272.01 165.20 l
+272.10 163.95 l
+272.20 162.69 l
+272.30 161.57 l
+272.40 161.17 l
+272.49 161.18 l
+272.59 161.19 l
+272.69 161.25 l
+272.78 161.21 l
+272.88 161.17 l
+272.98 161.15 l
+273.07 161.24 l
+273.17 161.20 l
+273.27 161.23 l
+273.36 161.26 l
+273.46 161.28 l
+273.56 161.28 l
+273.66 161.28 l
+273.75 161.27 l
+273.85 161.24 l
+273.95 161.18 l
+274.04 161.19 l
+274.14 161.20 l
+274.24 161.13 l
+274.33 161.14 l
+274.43 161.14 l
+274.53 161.15 l
+274.63 161.13 l
+274.72 161.11 l
+274.82 161.13 l
+274.92 161.08 l
+275.01 161.07 l
+275.11 161.05 l
+275.21 161.06 l
+275.31 161.03 l
+275.40 161.00 l
+275.50 160.49 l
+275.60 159.62 l
+275.69 158.40 l
+275.79 157.18 l
+275.89 155.94 l
+275.98 154.73 l
+276.08 153.47 l
+276.18 152.52 l
+276.27 152.20 l
+276.37 152.17 l
+276.47 152.18 l
+276.57 152.15 l
+276.66 152.13 l
+276.76 152.12 l
+276.86 152.13 l
+276.95 152.15 l
+277.05 152.18 l
+277.15 152.21 l
+277.24 152.24 l
+277.34 152.29 l
+277.44 152.32 l
+277.54 152.30 l
+277.63 152.26 l
+277.73 152.22 l
+277.83 152.22 l
+277.92 152.23 l
+278.02 152.24 l
+278.12 152.28 l
+278.21 152.14 l
+278.31 151.55 l
+278.41 150.46 l
+278.51 149.25 l
+278.60 148.04 l
+278.70 146.79 l
+278.80 145.72 l
+278.89 145.18 l
+278.99 144.99 l
+279.09 144.99 l
+279.18 145.00 l
+279.28 145.03 l
+279.38 145.00 l
+279.48 145.03 l
+279.57 144.99 l
+279.67 145.04 l
+279.77 145.00 l
+279.86 145.00 l
+279.96 145.00 l
+280.06 145.00 l
+280.15 145.03 l
+280.25 144.97 l
+280.35 144.99 l
+280.44 144.96 l
+280.54 144.97 l
+280.64 144.95 l
+280.74 144.93 l
+280.83 144.26 l
+280.93 143.02 l
+281.03 141.76 l
+281.12 140.50 l
+281.22 139.26 l
+281.32 138.01 l
+281.42 136.76 l
+281.51 135.54 l
+281.61 135.42 l
+281.71 135.38 l
+281.80 135.18 l
+281.90 134.93 l
+282.00 134.72 l
+282.09 134.48 l
+282.19 134.28 l
+282.29 134.02 l
+282.38 133.75 l
+282.48 133.56 l
+282.58 133.27 l
+282.68 133.07 l
+282.77 132.74 l
+282.87 131.94 l
+282.97 131.13 l
+283.06 130.35 l
+283.16 130.09 l
+283.26 130.13 l
+283.35 130.19 l
+283.45 130.24 l
+283.55 130.26 l
+283.65 130.28 l
+283.74 130.31 l
+283.84 130.36 l
+283.94 130.36 l
+284.03 130.33 l
+284.13 130.36 l
+284.23 130.37 l
+284.32 130.80 l
+284.42 131.93 l
+284.52 133.15 l
+284.62 134.37 l
+284.71 135.63 l
+284.81 136.80 l
+284.91 138.04 l
+285.00 138.80 l
+285.10 139.07 l
+285.20 139.09 l
+285.29 139.08 l
+285.39 139.07 l
+285.49 139.06 l
+285.59 139.06 l
+285.68 139.04 l
+285.78 139.05 l
+285.88 139.03 l
+285.97 139.04 l
+286.07 139.12 l
+286.17 139.15 l
+286.26 139.12 l
+286.36 139.03 l
+286.46 138.30 l
+286.56 137.28 l
+286.65 136.08 l
+286.75 134.88 l
+286.85 133.67 l
+286.94 132.46 l
+287.04 131.21 l
+287.14 129.95 l
+287.23 128.69 l
+287.33 127.47 l
+287.43 126.79 l
+287.53 126.82 l
+287.62 126.86 l
+287.72 126.90 l
+287.82 126.91 l
+287.91 126.93 l
+288.01 126.52 l
+288.11 125.40 l
+288.20 124.20 l
+288.30 122.95 l
+288.40 121.74 l
+288.49 120.57 l
+288.59 119.38 l
+288.69 118.22 l
+288.79 117.03 l
+288.88 115.85 l
+288.98 114.67 l
+289.08 113.84 l
+289.17 113.79 l
+289.27 113.84 l
+289.37 113.84 l
+289.46 113.85 l
+289.56 113.90 l
+289.66 113.86 l
+289.76 113.77 l
+289.85 113.59 l
+289.95 113.36 l
+290.05 113.15 l
+290.14 112.95 l
+290.24 112.75 l
+290.34 112.51 l
+290.43 112.24 l
+290.53 111.92 l
+290.63 111.65 l
+290.73 111.41 l
+290.82 111.37 l
+290.92 111.37 l
+291.02 111.35 l
+291.11 111.33 l
+291.21 111.31 l
+291.31 111.25 l
+291.40 111.22 l
+291.50 111.22 l
+291.60 111.47 l
+291.70 112.05 l
+291.79 112.99 l
+291.89 114.04 l
+291.99 115.08 l
+292.08 116.04 l
+292.18 116.58 l
+292.28 116.68 l
+292.37 116.65 l
+292.47 116.60 l
+292.57 116.58 l
+292.67 116.57 l
+292.76 116.66 l
+292.86 117.14 l
+292.96 118.07 l
+293.05 119.08 l
+293.15 120.12 l
+293.25 121.12 l
+293.34 121.70 l
+293.44 121.74 l
+293.54 121.78 l
+293.64 121.77 l
+293.73 121.75 l
+293.83 121.72 l
+293.93 121.72 l
+294.02 121.73 l
+294.12 121.72 l
+294.22 121.71 l
+294.31 121.84 l
+294.41 122.70 l
+294.51 123.74 l
+294.61 124.83 l
+294.70 125.86 l
+294.80 126.75 l
+294.90 126.82 l
+294.99 126.86 l
+295.09 126.93 l
+295.19 127.07 l
+295.28 127.33 l
+295.38 127.57 l
+295.48 127.86 l
+295.58 128.10 l
+295.67 128.38 l
+295.77 128.64 l
+295.87 128.82 l
+295.96 128.95 l
+296.06 129.07 l
+296.16 129.58 l
+296.25 130.39 l
+296.35 131.12 l
+296.45 131.75 l
+296.55 132.30 l
+296.64 132.35 l
+296.74 132.34 l
+296.84 132.33 l
+296.93 132.34 l
+297.03 132.37 l
+297.13 132.32 l
+297.22 132.37 l
+297.32 132.39 l
+297.42 132.40 l
+297.51 132.40 l
+297.61 132.43 l
+297.71 132.45 l
+297.81 132.52 l
+297.90 133.31 l
+298.00 134.29 l
+298.10 135.35 l
+298.19 136.18 l
+298.29 137.10 l
+298.39 138.09 l
+298.48 138.69 l
+298.58 138.69 l
+298.68 138.67 l
+298.78 138.63 l
+298.87 138.70 l
+298.97 138.78 l
+299.07 138.76 l
+299.16 138.88 l
+299.26 138.95 l
+299.36 139.01 l
+299.46 139.10 l
+299.55 139.55 l
+299.65 140.31 l
+299.75 140.40 l
+299.84 140.33 l
+299.94 140.32 l
+300.04 140.31 l
+300.13 140.25 l
+300.23 140.27 l
+300.33 140.32 l
+300.43 140.36 l
+300.52 140.44 l
+300.62 140.50 l
+300.72 140.51 l
+300.81 140.49 l
+300.91 140.49 l
+301.01 140.55 l
+301.10 140.61 l
+301.20 140.65 l
+301.30 140.72 l
+301.39 140.72 l
+301.49 140.70 l
+301.59 140.71 l
+301.69 140.72 l
+301.78 141.10 l
+301.88 141.93 l
+301.98 142.72 l
+302.07 143.69 l
+302.17 144.73 l
+302.27 145.78 l
+302.36 146.87 l
+302.46 147.94 l
+302.56 148.98 l
+302.66 150.06 l
+302.75 150.90 l
+302.85 150.98 l
+302.95 151.02 l
+303.04 151.14 l
+303.14 151.27 l
+303.24 151.39 l
+303.33 151.45 l
+303.43 151.46 l
+303.53 151.48 l
+303.63 151.55 l
+303.72 151.56 l
+303.82 151.61 l
+303.92 151.69 l
+304.01 151.70 l
+304.11 151.76 l
+304.21 151.81 l
+304.30 151.85 l
+304.40 151.89 l
+304.50 151.96 l
+304.60 152.00 l
+304.69 152.05 l
+304.79 152.15 l
+304.89 152.25 l
+304.98 152.27 l
+305.08 152.27 l
+305.18 152.20 l
+305.27 152.12 l
+305.37 152.05 l
+305.47 151.98 l
+305.57 151.81 l
+305.66 151.69 l
+305.76 151.53 l
+305.86 151.41 l
+305.95 151.27 l
+306.05 151.15 l
+306.15 151.08 l
+306.24 150.88 l
+306.34 150.71 l
+306.44 150.45 l
+306.53 150.28 l
+306.63 150.06 l
+306.73 149.91 l
+306.83 149.74 l
+306.92 149.53 l
+307.02 149.42 l
+307.12 149.40 l
+307.21 149.44 l
+307.50 149.45 l
+307.60 149.51 l
+307.70 149.58 l
+307.79 149.61 l
+307.89 149.61 l
+307.99 149.68 l
+308.08 149.68 l
+308.18 149.74 l
+308.28 149.76 l
+308.37 149.83 l
+308.47 149.87 l
+308.57 149.87 l
+308.67 149.86 l
+308.76 149.90 l
+308.86 149.94 l
+308.96 149.99 l
+309.05 150.02 l
+309.15 150.06 l
+309.25 150.13 l
+309.34 149.99 l
+309.44 148.95 l
+309.54 147.79 l
+309.64 146.63 l
+309.73 145.55 l
+309.83 144.40 l
+309.93 143.31 l
+310.02 142.14 l
+310.12 141.91 l
+310.22 141.93 l
+310.31 141.99 l
+310.41 142.00 l
+310.51 142.03 l
+310.61 142.13 l
+310.70 142.14 l
+310.80 142.19 l
+310.90 142.24 l
+310.99 142.26 l
+311.09 142.27 l
+311.19 142.30 l
+311.28 142.29 l
+311.38 142.34 l
+311.48 142.36 l
+311.58 142.41 l
+311.67 142.40 l
+311.77 142.48 l
+311.87 142.50 l
+311.96 142.18 l
+312.06 141.42 l
+312.16 140.66 l
+312.25 139.88 l
+312.35 139.14 l
+312.45 138.44 l
+312.55 137.67 l
+312.64 136.92 l
+312.74 136.17 l
+312.84 135.41 l
+312.93 134.67 l
+313.03 133.82 l
+313.13 132.98 l
+313.22 132.12 l
+313.32 131.28 l
+313.42 130.47 l
+313.51 129.65 l
+313.61 128.81 l
+313.71 128.08 l
+313.81 127.23 l
+313.90 126.41 l
+314.00 125.52 l
+314.10 124.69 l
+314.19 123.86 l
+314.29 123.02 l
+314.39 122.20 l
+314.48 121.35 l
+314.58 120.52 l
+314.68 119.72 l
+314.78 118.91 l
+314.87 118.16 l
+314.97 117.31 l
+315.07 116.48 l
+315.16 115.64 l
+315.26 114.81 l
+315.36 114.06 l
+315.45 113.41 l
+315.55 113.06 l
+315.65 112.53 l
+315.75 111.67 l
+315.84 110.87 l
+315.94 110.27 l
+316.04 109.54 l
+316.13 108.81 l
+316.23 108.14 l
+316.33 107.81 l
+316.42 107.53 l
+316.52 107.10 l
+316.62 106.30 l
+316.72 105.52 l
+316.81 104.79 l
+316.91 103.99 l
+317.01 103.27 l
+317.10 102.53 l
+317.20 102.36 l
+317.30 102.40 l
+317.39 102.46 l
+317.49 102.56 l
+317.59 103.43 l
+317.69 104.43 l
+317.78 105.47 l
+317.88 106.60 l
+317.98 107.49 l
+318.07 107.84 l
+318.17 108.29 l
+318.27 109.12 l
+318.36 109.98 l
+318.46 110.86 l
+318.56 111.76 l
+318.66 112.67 l
+318.75 113.49 l
+318.85 113.78 l
+318.95 113.81 l
+319.04 113.80 l
+319.14 113.85 l
+319.24 113.85 l
+319.33 113.86 l
+319.43 113.85 l
+319.53 113.92 l
+319.63 114.22 l
+319.72 114.83 l
+319.82 115.81 l
+319.92 116.71 l
+320.01 117.84 l
+320.11 118.94 l
+320.21 120.15 l
+320.30 121.23 l
+320.40 122.31 l
+320.50 123.38 l
+320.60 124.42 l
+320.69 124.99 l
+320.79 125.18 l
+320.89 125.18 l
+320.98 125.16 l
+321.08 125.14 l
+321.18 125.15 l
+321.27 125.27 l
+321.37 125.72 l
+321.47 126.40 l
+321.56 127.31 l
+321.66 128.24 l
+321.76 129.18 l
+321.86 129.76 l
+321.95 129.89 l
+322.05 129.95 l
+322.15 130.01 l
+322.24 130.09 l
+322.34 130.14 l
+322.44 130.18 l
+322.54 130.24 l
+322.63 130.27 l
+322.73 130.33 l
+322.83 130.34 l
+322.92 130.35 l
+323.02 130.37 l
+323.12 130.33 l
+323.21 130.34 l
+323.31 130.41 l
+323.41 131.08 l
+323.50 131.95 l
+323.60 132.84 l
+323.70 133.75 l
+323.80 134.62 l
+323.89 135.61 l
+323.99 136.50 l
+324.09 137.47 l
+324.18 138.40 l
+324.28 139.32 l
+324.38 139.67 l
+324.47 139.72 l
+324.57 139.77 l
+324.67 139.81 l
+324.77 139.79 l
+324.86 139.86 l
+324.96 139.88 l
+325.06 139.91 l
+325.15 139.94 l
+325.25 140.01 l
+325.35 140.01 l
+325.44 140.03 l
+325.54 140.05 l
+325.64 140.08 l
+325.74 140.13 l
+325.83 140.21 l
+325.93 140.27 l
+326.03 140.32 l
+326.12 140.35 l
+326.22 140.37 l
+326.32 140.44 l
+326.41 140.54 l
+326.51 140.65 l
+326.61 140.78 l
+326.71 140.88 l
+326.80 140.86 l
+326.90 140.91 l
+327.00 141.02 l
+327.09 141.28 l
+327.19 141.96 l
+327.29 143.04 l
+327.38 144.18 l
+327.48 145.35 l
+327.58 146.53 l
+327.68 147.67 l
+327.77 148.82 l
+327.87 149.96 l
+327.97 151.14 l
+328.06 152.32 l
+328.16 153.46 l
+328.26 154.60 l
+328.35 155.74 l
+328.45 156.71 l
+328.55 157.37 l
+328.65 157.74 l
+328.74 157.84 l
+328.84 157.93 l
+328.94 158.03 l
+329.03 158.03 l
+329.13 158.08 l
+329.23 158.06 l
+329.32 158.08 l
+329.42 158.08 l
+329.52 158.11 l
+329.61 158.17 l
+329.71 158.18 l
+329.81 158.21 l
+329.91 158.21 l
+330.00 158.23 l
+330.10 158.18 l
+330.20 158.16 l
+330.29 158.17 l
+330.39 158.12 l
+330.49 158.14 l
+330.58 158.10 l
+330.68 158.10 l
+330.78 158.09 l
+330.88 158.09 l
+330.97 158.10 l
+331.07 158.09 l
+331.17 157.99 l
+331.26 158.04 l
+331.36 158.65 l
+331.46 159.40 l
+331.55 160.22 l
+331.65 161.01 l
+331.75 161.99 l
+331.85 163.02 l
+331.94 163.98 l
+332.04 164.98 l
+332.14 166.11 l
+332.23 167.05 l
+332.33 167.63 l
+332.43 168.14 l
+332.52 168.65 l
+332.62 169.17 l
+332.72 169.65 l
+332.82 169.98 l
+332.91 170.44 l
+333.01 170.73 l
+333.11 170.76 l
+333.20 170.82 l
+333.30 170.89 l
+333.40 170.96 l
+333.49 171.02 l
+333.59 171.06 l
+333.69 171.11 l
+333.79 171.09 l
+333.88 171.11 l
+333.98 171.13 l
+334.08 171.16 l
+334.17 171.12 l
+334.27 171.14 l
+334.37 171.13 l
+334.46 171.15 l
+334.56 171.21 l
+334.66 171.26 l
+334.76 171.12 l
+334.85 171.16 l
+334.95 171.14 l
+335.05 170.75 l
+335.14 170.27 l
+335.24 169.73 l
+335.34 169.22 l
+335.43 168.48 l
+335.53 167.50 l
+335.63 166.49 l
+335.73 165.44 l
+335.82 164.38 l
+335.92 163.36 l
+336.02 162.35 l
+336.11 161.33 l
+336.21 160.28 l
+336.31 159.25 l
+336.40 158.26 l
+336.50 157.15 l
+336.60 156.10 l
+336.70 155.61 l
+336.79 155.68 l
+336.89 155.69 l
+336.99 155.66 l
+337.08 155.66 l
+337.18 155.65 l
+337.28 155.67 l
+337.37 155.68 l
+337.47 155.68 l
+337.57 155.66 l
+337.67 155.69 l
+337.76 155.71 l
+337.86 155.71 l
+337.96 155.66 l
+338.05 155.68 l
+338.15 155.65 l
+338.25 155.61 l
+338.34 155.17 l
+338.44 153.92 l
+338.54 152.63 l
+338.64 151.36 l
+338.73 150.12 l
+338.83 148.92 l
+338.93 147.65 l
+339.02 146.42 l
+339.12 145.20 l
+339.22 143.97 l
+339.31 142.75 l
+339.41 141.51 l
+339.51 141.02 l
+339.60 141.13 l
+339.70 140.95 l
+339.80 139.91 l
+339.90 138.84 l
+339.99 138.60 l
+340.09 138.67 l
+340.19 138.66 l
+340.28 138.72 l
+340.38 138.75 l
+340.48 138.72 l
+340.57 138.77 l
+340.67 138.80 l
+340.77 138.84 l
+340.87 138.88 l
+340.96 138.94 l
+341.06 138.99 l
+341.16 138.96 l
+341.25 138.96 l
+341.35 138.92 l
+341.45 138.91 l
+341.54 139.35 l
+341.64 140.43 l
+341.74 141.58 l
+341.84 142.71 l
+341.93 143.86 l
+342.03 145.06 l
+342.13 146.22 l
+342.22 147.38 l
+342.32 148.55 l
+342.42 149.71 l
+342.51 150.89 l
+342.61 152.03 l
+342.71 153.18 l
+342.81 154.34 l
+342.90 155.46 l
+343.00 156.57 l
+343.10 157.70 l
+343.19 158.85 l
+343.29 159.96 l
+343.39 161.03 l
+343.48 162.24 l
+343.58 163.41 l
+343.68 164.56 l
+343.78 165.71 l
+343.87 166.88 l
+343.97 168.06 l
+344.07 169.23 l
+344.16 170.35 l
+344.26 171.49 l
+344.36 172.57 l
+344.45 173.78 l
+344.55 174.85 l
+344.65 176.08 l
+344.75 177.19 l
+344.84 178.43 l
+344.94 179.50 l
+345.04 180.72 l
+345.13 181.81 l
+345.23 183.05 l
+345.33 184.22 l
+345.42 185.39 l
+345.52 186.59 l
+345.62 187.55 l
+345.72 187.80 l
+345.81 187.84 l
+345.91 187.84 l
+346.01 187.91 l
+346.10 187.95 l
+346.20 188.02 l
+346.30 188.04 l
+346.39 188.02 l
+346.49 188.07 l
+346.59 188.06 l
+346.68 188.07 l
+346.78 188.12 l
+346.88 188.17 l
+346.98 188.18 l
+347.07 188.17 l
+347.17 188.19 l
+347.27 188.22 l
+347.36 188.22 l
+347.46 188.23 l
+347.56 188.25 l
+347.65 188.24 l
+347.75 188.23 l
+347.85 188.22 l
+347.95 188.19 l
+348.04 188.21 l
+348.14 188.22 l
+348.24 188.20 l
+348.33 188.17 l
+348.43 187.82 l
+348.53 187.15 l
+348.62 186.34 l
+348.72 185.44 l
+348.82 184.50 l
+348.92 183.55 l
+349.01 182.60 l
+349.11 181.68 l
+349.21 180.71 l
+349.30 179.80 l
+349.40 178.90 l
+349.50 177.97 l
+349.59 177.07 l
+349.69 176.15 l
+349.79 175.27 l
+349.89 174.37 l
+349.98 173.52 l
+350.08 172.67 l
+350.18 171.83 l
+350.27 170.95 l
+350.37 170.78 l
+350.47 170.82 l
+350.56 170.87 l
+350.66 170.91 l
+350.76 170.98 l
+350.86 171.04 l
+350.95 171.11 l
+351.05 171.16 l
+351.15 171.25 l
+351.24 171.34 l
+351.34 171.41 l
+351.44 171.44 l
+351.53 171.45 l
+351.63 171.49 l
+351.73 171.55 l
+351.83 171.66 l
+351.92 171.74 l
+352.02 171.84 l
+352.12 171.89 l
+352.21 171.91 l
+352.31 171.94 l
+352.41 171.95 l
+352.50 171.99 l
+352.60 172.00 l
+352.70 171.49 l
+352.80 170.69 l
+352.89 170.12 l
+352.99 169.58 l
+353.09 169.02 l
+353.18 168.24 l
+353.28 167.24 l
+353.38 166.12 l
+353.47 165.03 l
+353.57 163.96 l
+353.67 162.83 l
+353.77 161.75 l
+353.86 160.73 l
+353.96 159.67 l
+354.06 158.64 l
+354.15 157.59 l
+354.25 156.53 l
+354.35 155.45 l
+354.44 154.36 l
+354.54 153.20 l
+354.64 152.06 l
+354.73 151.35 l
+354.83 151.46 l
+354.93 151.43 l
+355.03 151.44 l
+355.12 151.43 l
+355.22 151.47 l
+355.32 151.45 l
+355.41 151.48 l
+355.51 151.52 l
+355.61 151.60 l
+355.70 151.56 l
+355.80 151.55 l
+355.90 151.58 l
+356.00 151.56 l
+356.09 151.61 l
+356.19 151.67 l
+356.29 151.68 l
+356.38 151.72 l
+356.48 151.75 l
+356.58 151.76 l
+356.67 151.73 l
+356.77 151.78 l
+356.87 151.10 l
+356.97 149.94 l
+357.06 148.77 l
+357.16 147.61 l
+357.26 146.43 l
+357.35 145.30 l
+357.45 144.43 l
+357.55 144.15 l
+357.64 144.17 l
+357.74 144.28 l
+357.84 144.29 l
+357.94 144.33 l
+358.03 144.42 l
+358.13 144.46 l
+358.23 144.52 l
+358.32 144.56 l
+358.42 144.59 l
+358.52 144.64 l
+358.61 144.66 l
+358.71 144.68 l
+358.81 144.70 l
+358.91 144.68 l
+359.00 144.68 l
+359.10 144.65 l
+359.20 144.13 l
+359.29 143.06 l
+359.39 141.90 l
+359.49 140.67 l
+359.58 139.47 l
+359.68 138.33 l
+359.78 137.83 l
+359.88 137.95 l
+359.97 137.99 l
+360.07 138.24 l
+360.17 138.45 l
+360.26 138.69 l
+360.36 138.72 l
+360.46 138.71 l
+360.55 138.68 l
+360.65 138.71 l
+360.75 138.73 l
+360.85 138.74 l
+360.94 138.76 l
+361.04 138.77 l
+361.14 138.76 l
+361.23 138.80 l
+361.33 138.76 l
+361.43 138.79 l
+361.52 138.34 l
+361.62 137.73 l
+361.72 137.26 l
+361.82 136.65 l
+361.91 135.53 l
+362.01 134.32 l
+362.11 133.10 l
+362.20 131.91 l
+362.30 130.68 l
+362.40 129.70 l
+362.49 129.71 l
+362.59 129.71 l
+362.69 129.71 l
+362.79 129.70 l
+362.88 129.67 l
+362.98 129.72 l
+363.08 129.62 l
+363.17 129.08 l
+363.27 128.27 l
+363.37 127.35 l
+363.46 126.75 l
+363.56 126.45 l
+363.66 126.51 l
+363.76 126.56 l
+363.85 126.57 l
+363.95 126.49 l
+364.05 126.41 l
+364.14 126.37 l
+364.24 126.31 l
+364.34 126.25 l
+364.43 126.19 l
+364.53 126.18 l
+364.63 126.06 l
+364.73 125.83 l
+364.82 125.55 l
+364.92 125.27 l
+365.02 125.02 l
+365.11 124.81 l
+365.21 124.61 l
+365.31 124.35 l
+365.40 124.13 l
+365.50 124.04 l
+365.60 123.98 l
+365.70 123.91 l
+365.79 123.90 l
+365.89 123.88 l
+365.99 123.79 l
+366.08 123.77 l
+366.18 123.70 l
+366.28 123.66 l
+366.37 123.63 l
+366.47 123.91 l
+366.57 124.97 l
+366.66 126.13 l
+366.76 127.19 l
+366.86 128.29 l
+366.96 129.41 l
+367.05 130.19 l
+367.15 130.88 l
+367.25 131.54 l
+367.34 132.17 l
+367.44 132.81 l
+367.54 133.56 l
+367.63 134.23 l
+367.73 134.89 l
+367.83 135.27 l
+367.93 135.58 l
+368.02 136.00 l
+368.12 136.67 l
+368.22 137.30 l
+368.31 137.64 l
+368.41 137.84 l
+368.51 137.98 l
+368.60 138.17 l
+368.70 138.16 l
+368.80 138.16 l
+368.90 138.18 l
+368.99 138.19 l
+369.09 138.16 l
+369.19 138.24 l
+369.28 138.20 l
+369.38 138.17 l
+369.48 138.14 l
+369.57 138.15 l
+369.67 138.16 l
+369.77 138.08 l
+369.87 137.13 l
+369.96 135.97 l
+370.06 134.89 l
+370.16 133.90 l
+370.25 132.91 l
+370.35 131.90 l
+370.45 130.90 l
+370.54 129.85 l
+370.64 128.80 l
+370.74 127.81 l
+370.84 126.70 l
+370.93 125.74 l
+371.03 124.63 l
+371.13 123.46 l
+371.22 122.30 l
+371.32 121.18 l
+371.42 120.01 l
+371.51 118.84 l
+371.61 117.72 l
+371.71 116.66 l
+371.80 115.44 l
+371.90 114.38 l
+372.00 113.25 l
+372.10 112.20 l
+372.19 111.25 l
+372.29 110.33 l
+372.39 109.30 l
+372.48 108.33 l
+372.58 107.70 l
+372.68 107.32 l
+372.78 107.11 l
+372.87 107.13 l
+372.97 107.14 l
+373.07 107.11 l
+373.16 107.12 l
+373.26 107.08 l
+373.36 107.08 l
+373.45 107.02 l
+373.55 107.01 l
+373.65 106.98 l
+373.75 106.70 l
+373.84 106.64 l
+373.94 106.88 l
+374.04 107.30 l
+374.13 107.76 l
+374.23 108.25 l
+374.33 108.97 l
+374.42 109.73 l
+374.52 110.56 l
+374.62 111.42 l
+374.71 112.24 l
+374.81 113.20 l
+374.91 114.11 l
+375.01 115.04 l
+375.10 115.92 l
+375.20 116.86 l
+375.30 117.51 l
+375.39 118.16 l
+375.49 118.92 l
+375.59 119.73 l
+375.68 120.52 l
+375.78 121.29 l
+375.88 122.09 l
+375.98 122.88 l
+376.07 123.55 l
+376.17 124.25 l
+376.27 125.01 l
+376.36 125.79 l
+376.46 126.56 l
+376.56 127.46 l
+376.65 128.26 l
+376.75 129.10 l
+376.85 129.82 l
+376.95 130.60 l
+377.04 131.41 l
+377.14 132.07 l
+377.24 132.82 l
+377.33 133.51 l
+377.43 134.29 l
+377.53 135.03 l
+377.62 135.72 l
+377.72 136.55 l
+377.82 137.33 l
+377.92 138.20 l
+378.01 138.90 l
+378.11 139.69 l
+378.21 140.46 l
+378.30 140.99 l
+378.40 140.92 l
+378.50 140.92 l
+378.59 141.36 l
+378.69 141.98 l
+378.79 142.23 l
+378.89 142.09 l
+378.98 141.98 l
+379.08 141.83 l
+379.18 141.75 l
+379.27 141.65 l
+379.37 141.58 l
+379.47 141.50 l
+379.56 141.45 l
+379.66 141.35 l
+379.76 141.26 l
+379.85 140.92 l
+379.95 141.52 l
+380.05 142.57 l
+380.15 143.49 l
+380.24 144.31 l
+380.34 145.28 l
+380.44 145.96 l
+380.53 145.85 l
+380.63 145.32 l
+380.73 145.24 l
+380.83 145.19 l
+380.92 145.15 l
+381.02 145.10 l
+381.12 145.05 l
+381.21 145.02 l
+381.31 145.04 l
+381.41 144.96 l
+381.50 144.94 l
+381.60 145.10 l
+381.70 145.80 l
+381.79 146.49 l
+381.89 147.06 l
+381.99 147.68 l
+382.09 148.12 l
+382.18 148.06 l
+382.28 148.02 l
+382.38 148.03 l
+382.47 148.00 l
+382.57 148.01 l
+382.67 147.98 l
+382.76 148.00 l
+382.86 148.01 l
+382.96 147.96 l
+383.06 147.90 l
+383.15 147.87 l
+383.25 148.03 l
+383.35 148.53 l
+383.44 149.08 l
+383.54 149.68 l
+383.64 150.21 l
+383.73 150.63 l
+383.83 151.02 l
+383.93 151.40 l
+384.03 151.88 l
+384.12 152.30 l
+384.22 152.61 l
+384.32 152.98 l
+384.41 153.32 l
+384.51 153.72 l
+384.61 154.10 l
+384.70 154.58 l
+384.80 154.96 l
+384.90 155.19 l
+385.00 155.40 l
+385.09 155.61 l
+385.19 155.81 l
+385.29 156.01 l
+385.38 156.25 l
+385.48 156.44 l
+385.58 156.68 l
+385.67 156.74 l
+385.77 156.80 l
+385.87 156.85 l
+385.97 156.90 l
+386.06 156.89 l
+386.16 156.93 l
+386.26 156.94 l
+386.35 156.98 l
+386.45 156.97 l
+386.55 157.01 l
+386.64 157.03 l
+386.74 157.03 l
+386.84 157.01 l
+386.94 157.00 l
+387.03 157.01 l
+387.13 157.01 l
+387.23 156.97 l
+387.32 157.01 l
+387.42 156.93 l
+387.52 156.56 l
+387.61 155.97 l
+387.71 155.51 l
+387.81 154.97 l
+387.91 154.50 l
+388.00 154.02 l
+388.10 153.49 l
+388.20 153.00 l
+388.29 152.47 l
+388.39 151.96 l
+388.49 151.44 l
+388.58 150.93 l
+388.68 150.38 l
+388.78 149.85 l
+388.88 149.43 l
+388.97 148.90 l
+389.07 148.31 l
+389.17 147.83 l
+389.26 147.28 l
+389.36 146.71 l
+389.46 146.12 l
+389.55 145.59 l
+389.65 145.06 l
+389.75 144.57 l
+389.85 144.00 l
+389.94 143.44 l
+390.04 142.83 l
+390.14 142.24 l
+390.23 141.78 l
+390.33 141.27 l
+390.43 140.82 l
+390.52 140.41 l
+390.62 140.00 l
+390.72 139.66 l
+390.82 139.28 l
+390.91 138.80 l
+391.01 138.36 l
+391.11 137.83 l
+391.20 137.39 l
+391.30 136.85 l
+391.40 136.35 l
+391.49 135.86 l
+391.59 135.33 l
+391.69 134.82 l
+391.78 134.23 l
+391.88 133.66 l
+391.98 133.08 l
+392.08 132.47 l
+392.17 131.93 l
+392.27 131.34 l
+392.37 130.76 l
+392.46 130.28 l
+392.56 129.80 l
+392.66 129.35 l
+392.75 128.78 l
+392.85 128.23 l
+392.95 127.68 l
+393.05 127.12 l
+393.14 126.55 l
+393.24 125.97 l
+393.34 125.38 l
+393.43 124.80 l
+393.53 124.20 l
+393.63 123.60 l
+393.72 122.99 l
+393.82 122.46 l
+393.92 121.85 l
+394.02 121.33 l
+394.11 120.80 l
+394.21 120.34 l
+394.31 119.82 l
+394.40 119.28 l
+394.50 118.78 l
+394.60 118.27 l
+394.69 117.77 l
+394.79 117.24 l
+394.89 116.66 l
+394.99 116.05 l
+395.08 115.42 l
+395.18 114.81 l
+395.28 114.25 l
+395.37 113.66 l
+395.47 113.09 l
+395.57 112.48 l
+395.66 111.96 l
+395.76 111.38 l
+395.86 110.84 l
+395.96 110.21 l
+396.05 109.68 l
+396.15 109.11 l
+396.25 108.54 l
+396.34 107.96 l
+396.44 107.45 l
+396.54 106.85 l
+396.63 106.35 l
+396.73 105.83 l
+396.83 105.27 l
+396.93 104.72 l
+397.02 104.20 l
+397.12 103.66 l
+397.22 103.16 l
+397.31 102.52 l
+397.41 102.06 l
+397.51 101.47 l
+397.60 100.90 l
+397.70 100.38 l
+397.80 99.86 l
+397.90 99.32 l
+397.99 98.76 l
+398.09 98.20 l
+398.19 97.65 l
+398.28 97.16 l
+398.38 96.67 l
+398.48 96.18 l
+398.57 95.79 l
+398.67 95.31 l
+398.77 94.82 l
+398.86 94.35 l
+398.96 93.89 l
+399.06 93.41 l
+399.16 92.89 l
+399.25 92.36 l
+399.35 91.81 l
+399.45 91.24 l
+399.54 90.71 l
+399.64 90.12 l
+399.74 89.58 l
+399.83 89.00 l
+399.93 88.33 l
+400.03 87.55 l
+400.13 86.83 l
+400.22 86.25 l
+400.32 85.78 l
+400.42 85.32 l
+400.51 84.90 l
+400.61 84.58 l
+400.71 84.18 l
+400.80 83.63 l
+400.90 83.06 l
+401.00 82.50 l
+401.10 81.92 l
+401.19 81.33 l
+401.29 80.80 l
+401.39 80.20 l
+401.48 79.71 l
+401.58 79.20 l
+401.68 78.50 l
+401.77 77.57 l
+401.87 76.57 l
+401.97 76.06 l
+402.07 75.61 l
+402.16 75.11 l
+402.26 74.64 l
+402.36 74.19 l
+402.45 73.71 l
+402.55 73.22 l
+402.65 72.65 l
+402.74 72.14 l
+402.84 71.64 l
+402.94 71.06 l
+403.04 70.52 l
+403.13 69.99 l
+403.23 69.44 l
+403.33 68.91 l
+403.42 68.36 l
+403.52 67.76 l
+403.62 67.25 l
+403.71 66.75 l
+403.81 66.28 l
+403.91 66.10 l
+404.01 65.97 l
+404.10 65.83 l
+404.20 65.52 l
+404.30 65.24 l
+404.39 64.75 l
+404.49 64.22 l
+404.59 63.67 l
+404.68 63.11 l
+404.78 62.51 l
+404.88 61.89 l
+404.98 61.32 l
+405.07 60.71 l
+405.17 60.05 l
+405.27 59.39 l
+405.36 58.70 l
+405.46 58.00 l
+405.56 57.31 l
+405.65 56.63 l
+405.75 56.01 l
+405.85 55.40 l
+405.95 54.74 l
+406.04 54.17 l
+406.14 53.56 l
+406.24 53.06 l
+406.33 52.51 l
+406.43 52.01 l
+406.53 51.50 l
+406.62 51.07 l
+406.72 50.63 l
+406.82 50.10 l
+406.92 49.48 l
+407.01 48.87 l
+407.11 48.22 l
+407.21 47.55 l
+407.30 46.86 l
+407.40 46.18 l
+407.50 45.49 l
+407.59 44.79 l
+407.69 44.09 l
+407.79 43.39 l
+407.88 42.80 l
+407.98 42.19 l
+408.08 41.58 l
+408.18 41.01 l
+408.27 40.39 l
+408.37 39.86 l
+408.47 39.27 l
+408.56 38.74 l
+408.66 38.12 l
+408.76 37.58 l
+408.85 37.05 l
+409.05 35.86 l
+409.15 35.23 l
+409.24 34.63 l
+409.34 34.01 l
+409.44 33.35 l
+409.53 32.72 l
+409.63 32.02 l
+409.73 31.51 l
+409.82 30.96 l
+409.92 30.39 l
+410.02 29.86 l
+410.12 29.33 l
+410.21 28.81 l
+410.31 28.27 l
+410.41 27.76 l
+410.50 27.27 l
+410.60 26.76 l
+410.70 26.30 l
+410.79 25.84 l
+410.89 25.36 l
+410.99 24.91 l
+411.09 24.44 l
+411.18 24.03 l
+411.28 23.49 l
+411.38 22.99 l
+411.47 22.64 l
+411.57 22.36 l
+411.67 21.77 l
+411.76 21.14 l
+411.86 20.51 l
+411.96 19.84 l
+412.06 19.19 l
+412.15 18.52 l
+412.25 17.80 l
+412.35 17.13 l
+412.44 16.50 l
+412.54 15.88 l
+412.64 15.32 l
+412.73 14.75 l
+412.83 14.11 l
+412.93 13.50 l
+413.03 12.97 l
+413.12 12.41 l
+413.22 11.84 l
+413.32 11.28 l
+413.41 10.76 l
+413.51 10.17 l
+413.61 9.58 l
+413.70 9.08 l
+413.80 8.51 l
+413.90 7.92 l
+414.00 7.34 l
+414.09 6.68 l
+414.19 6.09 l
+414.29 5.54 l
+414.38 4.96 l
+414.48 4.36 l
+414.58 3.76 l
+414.67 3.18 l
+414.77 2.59 l
+414.87 1.96 l
+414.96 1.36 l
+415.06 0.80 l
+415.16 0.23 l
+415.26 -0.36 l
+415.35 -0.98 l
+415.45 -1.46 l
+415.55 -2.02 l
+415.64 -2.50 l
+415.74 -3.01 l
+415.84 -3.43 l
+415.93 -3.96 l
+416.03 -4.41 l
+416.13 -4.87 l
+416.23 -5.32 l
+416.32 -5.85 l
+416.42 -6.35 l
+416.52 -6.86 l
+416.61 -7.42 l
+416.71 -7.98 l
+416.81 -8.52 l
+416.90 -9.14 l
+417.00 -9.75 l
+417.10 -10.31 l
+417.20 -10.93 l
+417.29 -11.53 l
+417.39 -12.08 l
+417.49 -12.71 l
+417.58 -13.22 l
+417.68 -13.81 l
+417.78 -14.31 l
+417.88 -14.84 l
+417.97 -15.34 l
+418.07 -15.82 l
+418.17 -16.28 l
+418.26 -16.71 l
+418.36 -17.20 l
+418.46 -17.60 l
+418.55 -17.97 l
+418.65 -18.41 l
+418.75 -18.82 l
+418.84 -19.30 l
+418.94 -19.79 l
+419.04 -20.30 l
+419.14 -20.82 l
+419.23 -21.34 l
+419.33 -21.85 l
+419.43 -22.38 l
+419.52 -22.93 l
+419.62 -23.35 l
+419.72 -23.87 l
+419.81 -24.36 l
+419.91 -25.05 l
+420.01 -25.69 l
+420.11 -26.40 l
+420.20 -27.01 l
+420.30 -27.68 l
+420.40 -28.37 l
+420.49 -29.02 l
+420.59 -29.64 l
+420.69 -30.31 l
+420.78 -30.90 l
+420.88 -31.50 l
+420.98 -32.06 l
+421.08 -32.57 l
+421.17 -33.10 l
+421.27 -33.64 l
+421.37 -34.13 l
+421.46 -34.68 l
+421.56 -35.25 l
+421.66 -35.81 l
+421.75 -36.45 l
+421.85 -37.04 l
+421.95 -37.67 l
+422.05 -38.33 l
+422.14 -39.01 l
+422.24 -39.66 l
+422.34 -40.30 l
+422.43 -40.98 l
+422.53 -41.60 l
+422.63 -42.30 l
+422.72 -42.98 l
+422.82 -43.68 l
+422.92 -44.38 l
+423.01 -45.10 l
+423.11 -45.83 l
+423.21 -46.56 l
+423.31 -47.22 l
+423.40 -47.90 l
+423.50 -48.51 l
+423.60 -49.17 l
+423.69 -49.81 l
+423.79 -50.46 l
+423.89 -51.09 l
+423.99 -51.71 l
+424.08 -52.34 l
+424.18 -52.98 l
+424.28 -53.61 l
+424.37 -54.24 l
+424.47 -54.92 l
+424.57 -55.59 l
+424.66 -56.24 l
+424.76 -56.91 l
+424.86 -57.57 l
+424.95 -58.23 l
+425.05 -58.89 l
+425.15 -59.62 l
+425.25 -60.33 l
+425.34 -60.94 l
+425.44 -61.67 l
+425.54 -62.39 l
+425.63 -63.03 l
+425.73 -63.83 l
+425.83 -64.50 l
+425.92 -65.23 l
+426.02 -65.92 l
+426.12 -66.65 l
+426.22 -67.37 l
+426.31 -68.06 l
+426.41 -68.77 l
+426.51 -69.48 l
+426.60 -70.17 l
+426.70 -70.98 l
+426.80 -72.15 l
+426.89 -73.35 l
+426.99 -74.50 l
+427.09 -75.77 l
+427.19 -76.89 l
+427.28 -78.04 l
+427.38 -79.19 l
+427.48 -80.29 l
+427.57 -81.41 l
+427.67 -82.53 l
+427.77 -83.64 l
+427.86 -84.73 l
+427.96 -85.89 l
+428.06 -87.03 l
+428.16 -88.21 l
+428.25 -89.38 l
+428.35 -90.53 l
+428.45 -91.69 l
+428.54 -92.78 l
+428.64 -93.91 l
+428.74 -95.01 l
+428.83 -96.11 l
+428.93 -97.22 l
+429.03 -98.29 l
+429.13 -99.39 l
+429.22 -100.45 l
+429.32 -101.52 l
+429.42 -102.57 l
+429.51 -103.68 l
+429.61 -104.83 l
+429.71 -106.01 l
+429.80 -107.14 l
+429.90 -108.21 l
+430.00 -109.26 l
+430.10 -110.38 l
+430.19 -111.44 l
+430.29 -112.45 l
+430.39 -113.51 l
+430.48 -114.56 l
+430.58 -115.65 l
+430.68 -116.71 l
+430.77 -117.73 l
+430.87 -118.75 l
+430.97 -119.76 l
+431.07 -120.76 l
+431.16 -121.77 l
+431.26 -122.76 l
+431.36 -123.76 l
+431.45 -124.73 l
+431.55 -125.67 l
+431.65 -126.67 l
+431.74 -127.62 l
+431.84 -128.58 l
+431.94 -129.58 l
+432.03 -130.49 l
+432.13 -131.39 l
+432.23 -132.36 l
+432.33 -133.22 l
+432.42 -134.14 l
+432.52 -135.04 l
+432.62 -135.98 l
+432.71 -136.96 l
+432.81 -137.89 l
+432.91 -138.83 l
+433.00 -139.80 l
+433.10 -140.70 l
+433.20 -141.65 l
+433.30 -142.60 l
+433.39 -143.53 l
+433.49 -144.47 l
+433.59 -145.45 l
+433.68 -146.36 l
+433.78 -147.30 l
+433.88 -148.23 l
+433.97 -149.18 l
+434.07 -150.14 l
+434.17 -151.08 l
+434.27 -152.15 l
+434.36 -153.29 l
+434.46 -154.47 l
+434.56 -155.62 l
+434.65 -156.78 l
+434.75 -157.95 l
+434.85 -159.02 l
+434.94 -159.92 l
+435.04 -160.76 l
+435.14 -161.59 l
+435.24 -162.51 l
+435.33 -163.36 l
+435.43 -164.18 l
+435.53 -165.05 l
+435.62 -165.91 l
+435.72 -166.80 l
+435.82 -167.70 l
+435.91 -168.54 l
+436.01 -169.44 l
+436.11 -170.34 l
+436.21 -171.26 l
+436.30 -172.14 l
+436.40 -173.05 l
+436.50 -173.99 l
+436.59 -174.84 l
+436.69 -175.73 l
+436.79 -176.61 l
+436.88 -177.56 l
+436.98 -178.53 l
+437.08 -179.48 l
+437.18 -180.46 l
+437.27 -181.44 l
+437.37 -182.43 l
+437.47 -183.42 l
+437.56 -184.37 l
+437.66 -185.35 l
+437.76 -186.28 l
+437.85 -187.26 l
+437.95 -188.21 l
+438.05 -189.34 l
+438.15 -190.59 l
+438.24 -191.88 l
+438.34 -192.94 l
+438.44 -193.96 l
+438.53 -194.92 l
+438.63 -195.88 l
+438.73 -196.85 l
+438.82 -197.85 l
+438.92 -198.75 l
+439.02 -199.67 l
+439.12 -200.63 l
+439.21 -201.54 l
+439.31 -202.50 l
+439.41 -203.46 l
+439.50 -204.43 l
+439.60 -205.40 l
+439.70 -206.40 l
+439.79 -207.48 l
+439.89 -208.56 l
+439.99 -209.70 l
+440.08 -210.77 l
+440.18 -211.87 l
+440.28 -212.93 l
+440.38 -214.02 l
+440.47 -215.11 l
+440.57 -216.18 l
+S
+% END GriPath stroke/fill
+[] 0 d
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 97.4 129.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 99.3 139.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 101.2 147.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 103.2 146.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 105.4 145.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 107.4 146.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 109.3 143.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 111.2 131.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 113.2 131.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 115.1 136.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 117.1 136.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 119.0 136.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 120.9 136.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 122.9 136.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 124.8 147.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 126.8 149.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 128.7 151.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 130.6 145.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 132.6 136.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 134.5 143.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 136.5 150.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 138.4 154.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 140.3 154.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 142.3 161.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 144.2 161.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 146.2 169.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 148.1 171.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 150.0 180.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 152.0 187.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 153.9 187.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 155.9 186.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 157.8 186.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 159.7 170.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 161.7 170.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 163.6 157.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 165.5 157.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 167.5 149.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 169.4 141.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 171.4 136.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 173.3 136.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 175.2 125.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 177.2 129.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 179.1 142.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 181.1 148.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 183.0 148.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 184.9 155.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 186.9 162.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 188.9 170.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 190.9 170.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 192.9 187.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 194.8 187.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 196.7 176.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 198.7 171.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 200.6 172.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 202.6 161.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 204.5 166.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 206.4 181.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 208.4 183.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 210.3 181.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 212.3 180.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 214.2 178.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 216.1 174.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 218.1 167.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 220.0 167.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 222.0 158.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 223.9 158.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 225.8 152.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 227.8 151.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 229.7 151.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 231.7 143.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 233.6 136.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 235.5 132.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 237.5 129.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 239.4 124.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 241.4 111.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 243.3 107.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 245.2 124.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 247.2 115.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 249.1 127.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 251.1 138.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 253.0 145.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 254.9 138.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 256.9 130.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 258.8 154.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 260.8 159.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 262.7 167.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 264.6 174.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 266.6 173.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 268.5 171.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 270.5 171.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 272.4 161.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 274.3 161.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 276.3 152.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 278.2 152.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 280.2 145.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 282.1 134.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 284.0 130.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 286.0 139.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 287.9 126.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 289.9 113.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 291.8 113.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 293.7 121.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 295.7 128.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 297.6 132.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 299.6 139.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 301.5 140.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 303.4 151.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 305.4 152.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 307.5 149.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 309.4 149.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 311.4 142.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 313.3 131.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 315.3 114.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 317.2 102.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 319.1 113.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 321.1 125.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 323.0 130.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 325.0 139.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 326.9 140.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 328.8 157.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 330.8 158.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 332.7 169.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 334.7 171.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 336.6 156.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 338.5 152.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 340.5 138.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 342.4 149.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 344.4 172.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 346.3 188.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 348.2 188.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 350.2 171.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 352.1 171.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 354.1 158.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 356.0 151.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 357.9 144.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 359.9 137.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 361.8 136.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 363.8 126.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 365.7 123.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 367.6 134.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 369.6 138.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 371.5 118.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 373.5 107.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 375.4 118.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 377.3 133.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 379.3 141.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 381.2 145.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 383.2 147.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 385.1 155.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 387.0 157.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 389.0 148.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 390.9 138.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 392.9 128.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 394.8 117.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 396.7 105.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 398.7 95.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 400.6 84.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 402.6 73.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 404.5 64.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 406.4 52.0 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 408.4 39.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 410.4 27.8 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 412.3 17.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 414.3 5.5 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 416.2 -5.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 418.2 -16.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 420.1 -26.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 422.0 -38.3 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 424.0 -51.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 425.9 -65.2 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 427.9 -84.7 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 429.8 -107.1 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 431.7 -127.6 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 433.7 -146.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 435.6 -165.9 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 437.6 -184.4 m 0.0 _filledbox S
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0.369 w
+0 g
+0 G
+0.369 w
+n 439.5 -204.4 m 0.0 _filledbox S
+S Q % turn clipping off
+%gri:draw line from 3 0 to 9 0
+%^ scale 1 85.35 160 27.9327 1 113.8 -9 -56.9
+0 g
+0 G
+0.709 w
+0 g
+0 G
+1.0 i 0 J 1 j 0.709 w 10.0 M [] 0 d
+-4300.09 -398.30 m
+-4132.49 -398.30 l
+S
+% END GriPath stroke/fill
+%gri:close
+%gri:show "++++++++++++++++++++++ TS plots drawn ++++++++++++++++++++++"
+%gri:
+%gri://draw isopycnals
+%gri:open "\conf"
+%gri://skip  {rpn 5 13 * 26 +} //Ricardo's correction
+%gri:skip  36 //Ricardo's correction
+%gri:
+%gri:set clip on
+%gri:set font size {rpn .axfontsiz. 4 -}
+/Helvetica-ISOLatin1 findfont 11.00 sc sf
+%gri:read .noiso.
+%gri:.noiso. += 1
+%gri:.loop. = 1
+%gri:while {rpn .loop. .noiso. >}
+%gri:read \iso
+%gri:show \iso
+%gri:draw isopycnal \iso
+%gri:.loop. += 1 
+%gri:end while
+%gri:close  
+%gri:show "++++++++++++++++++++++ Isopycnals done ++++++++++++++++++++++"
+%gri:
+%gri:
+%gri://DRAW SPICENESS
+%gri:
+%gri://skip
+%gri://set clip on
+%gri://set font size {rpn .axfontsiz. 4 -}
+%gri://read .nospice.
+%gri://show .nospice.
+%gri://.nospice. += 1
+%gri://.loop. = 1
+%gri://while {rpn .loop. .nospice. >}
+%gri://read \spice
+%gri://show \spice
+%gri://draw line \spice
+%gri://set dash
+%gri://.loop. += 1
+%gri://end while
+%gri:
+%gri://show "++++++++++++++++++++ Spiciness done +++++++++++++++++++++++++"
+%gri:open "\conf"
+%gri: skip 48
+%gri:
+%gri:read .nlabs.
+%gri:show .nlabs.
+%gri://.nlabs. = {rpn .nlabs. 1 +}
+%gri:.labloop. = 0
+%gri:while {rpn .labloop. .nlabs. >}
+%gri:  read line \lab
+%gri:  read \colr
+%gri:  read .lsiz. .lx. .ly. .lrot.
+%gri:  set font size .lsiz.
+%gri:  set color "\colr"
+%gri:  draw label "\lab" centered at .lx. .ly. rotated .lrot.
+%gri:  .labloop. = {rpn .labloop. 1 +}
+%gri:end while
+%gri:set font size default
+/Helvetica-ISOLatin1 findfont 12.00 sc sf
+%gri:set color black
+%gri:close
+%gri:show "+++++++++++++++++++++ Labels drawn ++++++++++++++++++++++++++"
+%gri:
+%gri:
+%gri:if ..debug..
+%gri:	show all
+%gri:end if
+%gri:
+%gri:
+%gri:if !..publication..
+%gri:draw time stamp
+%gri:set font size 8
+%gri:draw essay "Control file \conf"
+%gri:draw essay "Datafile \data"
+%gri:end if
+%gri:
+%gri:quit
+showpage
+%%Trailer
+%%BoundingBox: 0 0 443 235
+%%DocumentFonts: Courier Helvetica Palatino-Roman Palatino-Italic Symbol Times-Roman
+%%Pages: 1
