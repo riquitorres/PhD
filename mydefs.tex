@@ -1,0 +1,125 @@
+% for unnumbered chapters like contents etc...
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \reset@font
+  \parindent \z@
+  \vspace*{10\p@}%
+  \hbox{%
+    \vbox{%
+      \hsize=2cm%
+      \begin{tabular}{c}
+        \scshape \strut \@chapapp{} \\
+        \psboxit{box 0 0 0 setrgbcolor fill}{%
+          \vrule depth 7em width -12pt%
+          \vrule height 0pt depth 0pt width 25pt%
+          {\white \LARGE \bfseries
+            \strut \vrule height 1.5em depth 0pt width -10pt
+            \thechapter}%
+          \vrule height 0pt depth 0pt width 12pt%
+          }
+      \end{tabular}%
+      }%
+    \vbox{%
+      \advance\hsize by -2cm
+      \hrule height 0.4pt depth 0pt width \hsize
+      \par
+      \vskip 6pt%
+      \hspace{20pt}%
+      \parbox{360pt}{%
+        \Huge \bfseries #1}%
+      }%
+    }%
+  \vskip 10\p@
+}% bottom for numbered chapters
+\def\@makeschapterhead#1{%
+  \reset@font
+  \parindent \z@
+  \vspace*{10\p@}%
+  \hbox{%
+    \vbox{%
+      \hsize=2cm%
+      \begin{tabular}{c}
+        \scshape \strut \phantom{\@chapapp{}} \\
+        \psboxit{box 0 0 0 setrgbcolor fill}{%
+          \vrule depth 8em width 0pt%
+          \vrule height 0pt depth 0pt width 15pt%
+          {\white \Large \bfseries
+            \strut \vrule height 1em depth 0pt width 0pt
+            \vphantom{\thechapter}}%
+          \vrule height 0pt depth 0pt width 12pt%
+          }
+      \end{tabular}%
+      }%
+    \vbox{%
+      \advance\hsize by -2cm
+      \hrule height 0.4pt depth 0pt width \hsize
+      \par
+      \vskip 6pt%
+      \hspace{20pt}%
+      \parbox{400pt}{%
+        \Huge \bfseries #1}%
+      }%
+    }%
+  \vskip 10\p@
+}
+% for fancy chapter headings
+
+% new commands for personal use
+\def\deg{$^\circ$}   % for latitude degrees
+\def\vel{$\mathrm{ms^{\scriptscriptstyle -1}}\,\,$}
+\def\velc{$\mathrm{cms^{\scriptscriptstyle -1}}\,\,$}
+\def\veld{$\mathrm{md^{\scriptscriptstyle -1}}\,\,$}
+\def\tra{$\mathrm{m^{\scriptscriptstyle 3}s^{\scriptscriptstyle -1}}\,\,$}
+\def\Eidx{$\mathrm{m^{\scriptscriptstyle 3}s^{\scriptscriptstyle -1} per 100m}\,\,$}
+\def\vol{$\mathrm{km^{\scriptscriptstyle 3}}\,\,$}
+\def\dens{$\mathrm{kgm^{\scriptscriptstyle 3}}\,\,$ }
+\def\enaw{$\mathrm{ENAW}$ }
+\def\enawp{$\mathrm{ENAW_{P}}$ }
+\def\enawt{$\mathrm{ENAW_{T}}$ }
+\def\enacwp{$\mathrm{ENACW_{P}}$ }
+\def\slantfrac#1#2{\hbox{$\,^#1\!/_#2$}}
+\def\onehalf{\slantfrac{1}{2}}
+\def\mix{$\mathrm{m^{\scriptscriptstyle 2}{s}^{\scriptscriptstyle -1}}\,\,$}
+\def\mixc{$\mathrm{cm^{\scriptscriptstyle 2}{s}^{\scriptscriptstyle -1}}\,\,$}
+\def\shear{$\mathrm{s^{-1}}\,\,$}
+% sets up general characteristics for graphs
+\def\abajocap{\subfiguretopcapfalse}
+\def\arribacap{\subfiguretopcaptrue}
+\subcapnoonelinetrue%
+\subfiguretopcaptrue %
+\DeclareGraphicsExtensions{.eps}
+\setlength{\floatsep}{0.3cm plus 0.3cm minus 0.3cm} % the same
+\setlength{\textfloatsep}{0.3cm plus 0.3cm minus 0.3cm} % the same
+
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.65}
+\renewcommand{\floatpagefraction}{0.60}
+%\setlength{\parskip}{2.3cm}
+\hyphenchar\font=-1 % so it doesn't hyphonate
+
+\tolerance 1000 %\widowpenalty 10000 \clubpenalty 10000
+
+% only for wind paper
+\def\markcite#1{#1\relax}
+\newif\ifprintcallout
+\printcallouttrue
+\def\nocallouts{\global\printcalloutfalse}
+\def\callout#1{#1\ifprintcallout\marginpar{\fbox{\large#1}}\fi}
+
+% for figures extending onto the margins
+% negative values place the figure inside the page margins
+\newenvironment{widefig}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}}%
+  \item[]}{\end{list}}
+%
+% For forcing single space in captions
+%
+\renewcommand{\captionfont}{\linespread{1}\small}
